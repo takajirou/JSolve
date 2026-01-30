@@ -73,6 +73,7 @@ N をそのまま出力してください。
 const defaultCode = `import fs from "fs";
 
 const input = fs.readFileSync(0, "utf8").trim();
+// console.log を使って出力してみよう！
 `;
 
 /* =====================

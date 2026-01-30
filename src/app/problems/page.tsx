@@ -16,6 +16,7 @@ import {
     Layers,
     AlertTriangle,
 } from "lucide-react";
+import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -537,7 +538,9 @@ export default function CompetitiveProgrammingSite() {
                                                 <Badge>{p.difficulty}</Badge>
                                             </div>
                                             <Button className="w-full">
-                                                問題に挑戦する
+                                                <Link href="/problems/1">
+                                                    問題に挑戦する
+                                                </Link>
                                                 <ArrowRight className="ml-2 h-4 w-4" />
                                             </Button>
                                         </CardContent>
