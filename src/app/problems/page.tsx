@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
     Brain,
     Code2,
@@ -19,6 +19,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 type Difficulty = "EASY" | "MEDIUM" | "HARD";
 type WebUsage = "LOW" | "NONE" | "DANGEROUS";
@@ -31,262 +32,49 @@ type Problem = {
     section?: string;
     difficulty: Difficulty;
     webUsage: WebUsage;
-    icon: React.ReactNode;
+    attemptCount?: number;
 };
 
-const problems: Problem[] = [
-    /* ===== 入出力 ===== */
-    {
-        id: "fs-read",
-        functionName: "fs.readFileSync()",
-        description: "標準入力を高速に読み込め",
-        category: "入出力",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Code2 className="h-5 w-5 text-violet-500" />,
-    },
-    {
-        id: "process-stdin",
-        functionName: "process.stdin.on('data')",
-        description: "ストリームとして標準入力を扱え",
-        category: "入出力",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Code2 className="h-5 w-5 text-violet-500" />,
-    },
-    {
-        id: "new-set-basic",
-        functionName: "new Set の基本",
-        description: "Set を使って重複チェックを行え",
-        category: "Set / Map",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Hash className="h-5 w-5 text-blue-500" />,
-    },
-    {
-        id: "map-get-default",
-        functionName: "Map.get ?? 0 の基本",
-        description: "未定義キーを考慮した安全な加算を行え",
-        category: "Set / Map",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Database className="h-5 w-5 text-blue-500" />,
-    },
+type Stats = {
+    total: number;
+    easy: number;
+    medium: number;
+    hard: number;
+};
 
-    // ===== Math / 数値 =====
-    {
-        id: "math-min",
-        functionName: "Math.min を for-loop で使う",
-        description: "スプレッド構文を使わず最小値を求めよ",
-        category: "数値 / Math",
-        difficulty: "EASY",
-        webUsage: "DANGEROUS",
-        icon: <Sigma className="h-5 w-5 text-orange-500" />,
-    },
-    {
-        id: "max-safe-integer",
-        functionName: "Number.MAX_SAFE_INTEGER を使う",
-        description: "無限大の初期値として正しく利用せよ",
-        category: "数値 / Math",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Sigma className="h-5 w-5 text-orange-500" />,
-    },
+type Category = {
+    id: string;
+    name: string;
+    displayName: string;
+    description: string;
+    problemCount: number;
+};
 
-    // ===== 文字列 =====
-    {
-        id: "char-code-at",
-        functionName: "charCodeAt で文字を数値に変換",
-        description: "a〜z を 0〜25 に変換せよ",
-        category: "文字列",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Code2 className="h-5 w-5 text-violet-500" />,
-    },
-    {
-        id: "parse-int-radix",
-        functionName: "parseInt の基数を指定する",
-        description: "10進数として安全に数値変換せよ",
-        category: "文字列",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Code2 className="h-5 w-5 text-violet-500" />,
-    },
-
-    // ===== ソート =====
-    {
-        id: "numeric-sort",
-        functionName: "数値ソートの基本",
-        description: "比較関数を指定して昇順ソートせよ",
-        category: "ソート",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Layers className="h-5 w-5 text-emerald-500" />,
-    },
-
-    // ===== ループ =====
-    {
-        id: "for-loop-basic",
-        functionName: "for-loop の基本",
-        description: "for 文を使って配列を走査せよ",
-        category: "ループ",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <AlertTriangle className="h-5 w-5 text-yellow-500" />,
-    },
-    {
-        id: "break-continue",
-        functionName: "break / continue の使い分け",
-        description: "ループ制御を正しく行え",
-        category: "ループ",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <AlertTriangle className="h-5 w-5 text-yellow-500" />,
-    },
-
-    // ===== アルゴリズム超入門 =====
-    {
-        id: "prefix-sum-basic",
-        functionName: "累積和の基本",
-        description: "一次元配列の累積和を構築せよ",
-        category: "アルゴリズム",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Brain className="h-5 w-5 text-purple-500" />,
-    },
-
-    /* ===== ビット全探索 ===== */
-    {
-        id: "bit-shift-n",
-        functionName: "(1 << n)",
-        description: "部分集合の総数を求めよ",
-        category: "ビット演算",
-        section: "ビット全探索",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Binary className="h-5 w-5 text-blue-500" />,
-    },
-    {
-        id: "bit-mask-check",
-        functionName: "mask & (1 << i)",
-        description: "i 番目の要素が選ばれているか判定せよ",
-        category: "ビット演算",
-        section: "ビット全探索",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Binary className="h-5 w-5 text-blue-500" />,
-    },
-    {
-        id: "bit-enumerate",
-        functionName: "for (mask < (1 << n))",
-        description: "すべての部分集合を列挙せよ",
-        category: "ビット演算",
-        section: "ビット全探索",
-        difficulty: "MEDIUM",
-        webUsage: "NONE",
-        icon: <Binary className="h-5 w-5 text-blue-500" />,
-    },
-    {
-        id: "bit-popcount",
-        functionName: "popcount (自作)",
-        description: "立っているビット数を数えよ",
-        category: "ビット演算",
-        section: "ビット全探索",
-        difficulty: "MEDIUM",
-        webUsage: "NONE",
-        icon: <Binary className="h-5 w-5 text-blue-500" />,
-    },
-
-    /* ===== 二分探索 ===== */
-    {
-        id: "binary-search-basic",
-        functionName: "while (l < r)",
-        description: "単調性を用いた二分探索を実装せよ",
-        category: "アルゴリズム",
-        section: "二分探索",
-        difficulty: "MEDIUM",
-        webUsage: "LOW",
-        icon: <Brain className="h-5 w-5 text-indigo-500" />,
-    },
-    {
-        id: "binary-search-lowerbound",
-        functionName: "lower_bound",
-        description: "条件を満たす最小の index を求めよ",
-        category: "アルゴリズム",
-        section: "二分探索",
-        difficulty: "MEDIUM",
-        webUsage: "LOW",
-        icon: <Brain className="h-5 w-5 text-indigo-500" />,
-    },
-
-    /* ===== 累積和 ===== */
-    {
-        id: "prefix-sum-1d",
-        functionName: "prefix[i] = prefix[i-1] + a[i]",
-        description: "1 次元累積和を構築せよ",
-        category: "配列操作",
-        section: "累積和",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Database className="h-5 w-5 text-teal-500" />,
-    },
-    {
-        id: "prefix-sum-range",
-        functionName: "sum[l..r]",
-        description: "区間和を O(1) で求めよ",
-        category: "配列操作",
-        section: "累積和",
-        difficulty: "EASY",
-        webUsage: "LOW",
-        icon: <Database className="h-5 w-5 text-teal-500" />,
-    },
-
-    /* ===== BFS / DFS ===== */
-    {
-        id: "bfs-queue",
-        functionName: "queue.shift()",
-        description: "幅優先探索を実装せよ",
-        category: "グラフ",
-        section: "BFS",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Brain className="h-5 w-5 text-indigo-500" />,
-    },
-    {
-        id: "dfs-recursive",
-        functionName: "dfs(v)",
-        description: "再帰で深さ優先探索を行え",
-        category: "グラフ",
-        section: "DFS",
-        difficulty: "EASY",
-        webUsage: "NONE",
-        icon: <Brain className="h-5 w-5 text-indigo-500" />,
-    },
-
-    /* ===== DP ===== */
-    {
-        id: "dp-array",
-        functionName: "dp[i]",
-        description: "配る DP の基本形を実装せよ",
-        category: "DP",
-        section: "動的計画法",
-        difficulty: "MEDIUM",
-        webUsage: "NONE",
-        icon: <Zap className="h-5 w-5 text-orange-500" />,
-    },
-    {
-        id: "dp-transition",
-        functionName: "dp[i] = min(dp[i-1], dp[i-2])",
-        description: "遷移式を設計せよ",
-        category: "DP",
-        section: "動的計画法",
-        difficulty: "MEDIUM",
-        webUsage: "NONE",
-        icon: <Zap className="h-5 w-5 text-orange-500" />,
-    },
-];
+const iconMap: Record<string, React.ReactNode> = {
+    入出力: <Code2 className="h-5 w-5 text-violet-500" />,
+    "Set / Map": <Hash className="h-5 w-5 text-blue-500" />,
+    "数値 / Math": <Sigma className="h-5 w-5 text-orange-500" />,
+    文字列: <Code2 className="h-5 w-5 text-violet-500" />,
+    ソート: <Layers className="h-5 w-5 text-emerald-500" />,
+    ループ: <AlertTriangle className="h-5 w-5 text-yellow-500" />,
+    アルゴリズム: <Brain className="h-5 w-5 text-purple-500" />,
+    ビット演算: <Binary className="h-5 w-5 text-blue-500" />,
+    配列操作: <Database className="h-5 w-5 text-teal-500" />,
+    グラフ: <Brain className="h-5 w-5 text-indigo-500" />,
+    DP: <Zap className="h-5 w-5 text-orange-500" />,
+};
 
 export default function CompetitiveProgrammingSite() {
+    const [problems, setProblems] = useState<Problem[]>([]);
+    const [categories, setCategories] = useState<Category[]>([]);
+    const [stats, setStats] = useState<Stats>({
+        total: 0,
+        easy: 0,
+        medium: 0,
+        hard: 0,
+    });
+    const [loading, setLoading] = useState(true);
+
     const [selectedCategory, setSelectedCategory] = useState<string>("全て");
     const [selectedDifficulty, setSelectedDifficulty] =
         useState<Difficulty | null>(null);
@@ -296,9 +84,36 @@ export default function CompetitiveProgrammingSite() {
     );
     const [searchText, setSearchText] = useState<string>("");
 
-    const categories = useMemo(
-        () => ["全て", ...Array.from(new Set(problems.map((p) => p.category)))],
-        [],
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const [problemsRes, categoriesRes, statsRes] = await Promise.all([
+                fetch("/api/problems"),
+                fetch("/api/categories"),
+                fetch("/api/stats"),
+            ]);
+
+            const problemsData = await problemsRes.json();
+            const categoriesData = await categoriesRes.json();
+            const statsData = await statsRes.json();
+
+            setProblems(problemsData.problems);
+            setCategories(categoriesData.categories);
+            setStats(statsData);
+        } catch (error) {
+            console.error("Failed to fetch data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const categoryNames = useMemo(
+        () => ["全て", ...categories.map((c) => c.displayName)],
+        [categories],
     );
 
     const sections = useMemo(
@@ -308,7 +123,7 @@ export default function CompetitiveProgrammingSite() {
                 new Set(problems.map((p) => p.section).filter(Boolean)),
             ),
         ],
-        [],
+        [problems],
     );
 
     const filteredProblems = problems.filter((p) => {
@@ -343,6 +158,17 @@ export default function CompetitiveProgrammingSite() {
         {},
     );
 
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-background flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
+                    <p className="mt-4 text-muted-foreground">読み込み中...</p>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="min-h-screen bg-background">
             <div className="max-w-7xl mx-auto px-6 py-12 space-y-10">
@@ -365,25 +191,19 @@ export default function CompetitiveProgrammingSite() {
                     <SummaryCard
                         icon={<Code2 />}
                         title="EASY"
-                        value={problems
-                            .filter((p) => p.difficulty === "EASY")
-                            .length.toString()}
+                        value={stats.easy.toString()}
                         gradient="from-blue-200 to-indigo-300"
                     />
                     <SummaryCard
                         icon={<Brain />}
                         title="MEDIUM"
-                        value={problems
-                            .filter((p) => p.difficulty === "MEDIUM")
-                            .length.toString()}
+                        value={stats.medium.toString()}
                         gradient="from-yellow-200 to-amber-300"
                     />
                     <SummaryCard
                         icon={<Zap />}
                         title="HARD"
-                        value={problems
-                            .filter((p) => p.difficulty === "HARD")
-                            .length.toString()}
+                        value={stats.hard.toString()}
                         gradient="from-orange-200 to-red-300"
                     />
                 </div>
@@ -410,7 +230,7 @@ export default function CompetitiveProgrammingSite() {
 
                         {/* Category */}
                         <div className="flex flex-wrap gap-2">
-                            {categories.map((c) => (
+                            {categoryNames.map((c) => (
                                 <Button
                                     key={c}
                                     size="sm"
@@ -521,7 +341,9 @@ export default function CompetitiveProgrammingSite() {
                                         <CardHeader>
                                             <CardTitle className="flex items-center gap-3">
                                                 <div className="h-10 w-10 rounded-lg bg-muted flex items-center justify-center">
-                                                    {p.icon}
+                                                    {iconMap[p.category] || (
+                                                        <Code2 className="h-5 w-5" />
+                                                    )}
                                                 </div>
                                                 {p.functionName}
                                             </CardTitle>
@@ -535,11 +357,20 @@ export default function CompetitiveProgrammingSite() {
                                                     {p.category}
                                                 </Badge>
                                                 <Badge>{p.difficulty}</Badge>
+                                                {p.attemptCount !== undefined &&
+                                                    p.attemptCount > 0 && (
+                                                        <Badge variant="outline">
+                                                            {p.attemptCount}{" "}
+                                                            回挑戦
+                                                        </Badge>
+                                                    )}
                                             </div>
-                                            <Button className="w-full">
-                                                問題に挑戦する
-                                                <ArrowRight className="ml-2 h-4 w-4" />
-                                            </Button>
+                                            <Link href={`/problems/${p.id}`}>
+                                                <Button className="w-full">
+                                                    問題に挑戦する
+                                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                                </Button>
+                                            </Link>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -564,7 +395,7 @@ function SummaryCard({ icon, title, value, gradient }: SummaryCardProps) {
         <Card>
             <CardContent className="flex items-center gap-4 p-5">
                 <div
-                    className={`h-14 w-14 rounded-xl bg-linear-to-br ${gradient} flex items-center justify-center`}
+                    className={`h-14 w-14 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center`}
                 >
                     {icon}
                 </div>
