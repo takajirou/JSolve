@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
     Code2,
     ArrowRight,
     ArrowLeft,
     X,
-    BookOpen,
     RefreshCcw,
     PenLine,
+    Play,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
+import { CodeEditor } from "@/features/editor/components/editor";
+import { transformCodeForBrowser } from "@/features/editor/lib/transformCodeForBrowser";
 
 /* =====================
  * Types
@@ -30,26 +32,20 @@ type TutorialStep = {
     code?: string;
 };
 
-type Problem = {
-    title: string;
-    description: string;
-    difficulty: "Easy" | "Medium" | "Hard";
-    category: string;
-};
-
 /* =====================
- * Mock Data
+ * Data
  * ===================== */
 
 const tutorialSteps: TutorialStep[] = [
     {
         title: "fs.readFileSync とは？",
-        description: "Node.js で標準入力を同期的に読み込むための関数です。",
+        description:
+            "Node.js で標準入力を同期的に読み込むための関数です。競技プログラミングで最もよく使われます。",
     },
     {
         title: "基本的な使い方",
         description:
-            "fs.readFileSync(0, 'utf8') で標準入力を文字列として取得できます。",
+            "fs.readFileSync(0, 'utf8') と書くことで標準入力を一括取得できます。",
         code: `import fs from "fs";
 
 const input = fs.readFileSync(0, "utf8");
@@ -57,51 +53,74 @@ console.log(input);`,
     },
 ];
 
-const problem: Problem = {
+const problem = {
     title: "標準入力を受け取って出力せよ",
+    category: "入出力",
+    difficulty: "Easy",
     description: `整数 N が 1 行で与えられます。
 N をそのまま出力してください。
 
 【制約】
-・1 ≤ N ≤ 10^9
+1 ≤ N ≤ 10^9
 
 【入力例】
 5
 
 【出力例】
 5`,
-    difficulty: "Easy",
-    category: "入出力",
 };
+
+const defaultCode = `import fs from "fs";
+
+const input = fs.readFileSync(0, "utf8").trim();
+// console.log を使って出力してみよう！
+`;
 
 /* =====================
  * Page
  * ===================== */
 
 export default function ProblemPage() {
-    const [tutorialOpen, setTutorialOpen] = useState(false);
+    const [tutorialOpen, setTutorialOpen] = useState(true);
     const [step, setStep] = useState(0);
-    const [code, setCode] = useState<string>(
-        "// ここにコードを書いてください\n",
-    );
+    const [code, setCode] = useState(defaultCode);
+    const [output, setOutput] = useState("");
 
     const current = tutorialSteps[step];
     const isLastStep = step === tutorialSteps.length - 1;
 
-    useEffect(() => {
-        setTutorialOpen(true);
-    }, []);
+    const runCode = () => {
+        const logs: string[] = [];
+        const originalLog = console.log;
+
+        console.log = (...args: unknown[]) => {
+            logs.push(args.map(String).join(" "));
+        };
+
+        try {
+            const transformedCode = transformCodeForBrowser(code, "5");
+
+            new Function(transformedCode)();
+        } catch (e) {
+            if (e instanceof Error) {
+                logs.push(`エラー: ${e.message}`);
+            }
+        }
+
+        console.log = originalLog;
+        setOutput(logs.join("\n"));
+    };
 
     return (
         <div className="min-h-screen bg-background">
             <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
                 {/* ===== Header ===== */}
-                <div className="space-y-2">
+                <div>
                     <h1 className="text-3xl font-bold flex items-center gap-3">
                         <Code2 className="h-7 w-7 text-violet-500" />
                         {problem.title}
                     </h1>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 mt-2">
                         <Badge>{problem.category}</Badge>
                         <Badge variant="secondary">
                             難易度: {problem.difficulty}
@@ -111,30 +130,23 @@ export default function ProblemPage() {
 
                 {/* ===== Main Layout ===== */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* ===== Problem Statement ===== */}
+                    {/* Problem */}
                     <Card className="h-[600px] flex flex-col">
                         <CardHeader>
                             <CardTitle>問題文</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1 overflow-y-auto text-sm leading-relaxed whitespace-pre-wrap">
+                        <CardContent className="flex-1 overflow-y-auto whitespace-pre-wrap text-sm">
                             {problem.description}
                         </CardContent>
                     </Card>
 
-                    {/* ===== Editor ===== */}
+                    {/* Editor */}
                     <Card className="h-[600px] flex flex-col">
                         <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <BookOpen className="h-5 w-5" />
-                                コードエディタ
-                            </CardTitle>
+                            <CardTitle>コードエディタ</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-1">
-                            <textarea
-                                value={code}
-                                onChange={(e) => setCode(e.target.value)}
-                                className="w-full h-full font-mono text-sm p-4 border rounded-md bg-muted resize-none"
-                            />
+                            <CodeEditor value={code} onChange={setCode} />
                         </CardContent>
                     </Card>
                 </div>
@@ -146,14 +158,32 @@ export default function ProblemPage() {
                         onClick={() => setTutorialOpen(true)}
                     >
                         <RefreshCcw className="h-4 w-4 mr-1" />
-                        チュートリアルを再確認
+                        チュートリアル
                     </Button>
 
-                    <Button>
-                        <PenLine className="h-4 w-4 mr-1" />
-                        回答する
-                    </Button>
+                    <div className="flex gap-2">
+                        <Button onClick={runCode}>
+                            <Play className="h-4 w-4 mr-1" />
+                            実行
+                        </Button>
+                        <Button>
+                            <PenLine className="h-4 w-4 mr-1" />
+                            回答する
+                        </Button>
+                    </div>
                 </div>
+
+                {/* ===== Output ===== */}
+                <Card>
+                    <CardHeader>
+                        <CardTitle>実行結果</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <pre className="bg-muted p-4 rounded-md text-sm">
+                            {output || "未実行"}
+                        </pre>
+                    </CardContent>
+                </Card>
             </div>
 
             {/* ===== Tutorial Dialog ===== */}
@@ -163,17 +193,15 @@ export default function ProblemPage() {
                         <DialogTitle>{current.title}</DialogTitle>
                     </DialogHeader>
 
-                    <div className="space-y-4">
-                        <p className="text-muted-foreground">
-                            {current.description}
-                        </p>
+                    <p className="text-muted-foreground">
+                        {current.description}
+                    </p>
 
-                        {current.code && (
-                            <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto">
-                                <code>{current.code}</code>
-                            </pre>
-                        )}
-                    </div>
+                    {current.code && (
+                        <pre className="bg-muted p-4 rounded-md text-sm mt-4">
+                            <code>{current.code}</code>
+                        </pre>
+                    )}
 
                     <div className="flex justify-between pt-6">
                         <Button
