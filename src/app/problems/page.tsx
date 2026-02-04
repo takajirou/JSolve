@@ -96,6 +96,7 @@ export default function CompetitiveProgrammingSite() {
                 fetch("/api/categories"),
                 fetch("/api/stats"),
             ]);
+            console.log("fetch");
 
             const problemsData = await problemsRes.json();
             const categoriesData = await categoriesRes.json();
