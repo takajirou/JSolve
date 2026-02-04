@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+
 import {
     Code2,
     ArrowRight,
     ArrowLeft,
     X,
-    BookOpen,
     RefreshCcw,
     PenLine,
     Loader2,
@@ -21,6 +21,8 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
+import { CodeEditor } from "@/features/editor/components/editor";
+import { transformCodeForBrowser } from "@/features/editor/lib/transformCodeForBrowser";
 
 /* =====================
  * Types
@@ -52,6 +54,12 @@ type Problem = {
     tags: string[];
 };
 
+const defaultCode = `import fs from "fs";
+
+const input = fs.readFileSync(0, "utf8").trim();
+// console.log を使って出力してみよう！
+`;
+
 /* =====================
  * Page
  * ===================== */
@@ -66,9 +74,8 @@ export default function ProblemPage() {
     const [loading, setLoading] = useState(true);
     const [tutorialOpen, setTutorialOpen] = useState(false);
     const [step, setStep] = useState(0);
-    const [code, setCode] = useState<string>(
-        "// ここにコードを書いてください\n",
-    );
+    const [code, setCode] = useState(defaultCode);
+    const [output, setOutput] = useState("");
 
     useEffect(() => {
         fetchProblem();
@@ -106,6 +113,7 @@ export default function ProblemPage() {
     const current = tutorialSteps[step];
     const isLastStep = step === tutorialSteps.length - 1;
 
+
     const handleSubmit = async () => {
         // TODO: 回答提出のロジックを実装
         alert("回答提出機能は実装中です");
@@ -126,7 +134,7 @@ export default function ProblemPage() {
         <div className="min-h-screen bg-background">
             <div className="max-w-7xl mx-auto px-6 py-12 space-y-8">
                 {/* ===== Header ===== */}
-                <div className="space-y-2">
+                <div>
                     <h1 className="text-3xl font-bold flex items-center gap-3">
                         <Code2 className="h-7 w-7 text-violet-500" />
                         {problem.title}
@@ -146,7 +154,7 @@ export default function ProblemPage() {
 
                 {/* ===== Main Layout ===== */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* ===== Problem Statement ===== */}
+                    {/* Problem */}
                     <Card className="h-[600px] flex flex-col">
                         <CardHeader>
                             <CardTitle>問題文</CardTitle>
@@ -191,13 +199,10 @@ export default function ProblemPage() {
                         </CardContent>
                     </Card>
 
-                    {/* ===== Editor ===== */}
+                    {/* Editor */}
                     <Card className="h-[600px] flex flex-col">
                         <CardHeader>
-                            <CardTitle className="flex items-center gap-2">
-                                <BookOpen className="h-5 w-5" />
-                                コードエディタ
-                            </CardTitle>
+                            <CardTitle>コードエディタ</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-1">
                             <textarea
@@ -237,6 +242,18 @@ export default function ProblemPage() {
                         回答する
                     </Button>
                 </div>
+
+                {/* ===== Output ===== */}
+                <Card>
+                    <CardHeader>
+                        <CardTitle>実行結果</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <pre className="bg-muted p-4 rounded-md text-sm">
+                            {output || "未実行"}
+                        </pre>
+                    </CardContent>
+                </Card>
             </div>
 
             {/* ===== Tutorial Dialog ===== */}
