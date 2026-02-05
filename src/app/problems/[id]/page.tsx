@@ -36,7 +36,10 @@ type Problem = {
     title: string;
     description: string;
     difficulty: string;
-    category: string;
+    category: {
+        id: string;
+        name: string;
+    };
     explanation: string;
     sampleInput: string;
     sampleOutput: string;
@@ -141,7 +144,7 @@ export default function ProblemPage() {
                         {problem.title}
                     </h1>
                     <div className="flex gap-2 flex-wrap">
-                        <Badge>{problem.category[0]}</Badge>
+                        <Badge>{problem.category.name}</Badge>
                         <Badge variant="secondary">
                             難易度: {problem.difficulty}
                         </Badge>
