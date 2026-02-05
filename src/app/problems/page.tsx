@@ -98,15 +98,25 @@ export default function CompetitiveProgrammingSite() {
             ]);
             console.log("fetch");
 
+            // レスポンスのステータスチェックを追加
+            if (!problemsRes.ok || !categoriesRes.ok || !statsRes.ok) {
+                throw new Error("API request failed");
+            }
+
             const problemsData = await problemsRes.json();
             const categoriesData = await categoriesRes.json();
             const statsData = await statsRes.json();
 
-            setProblems(problemsData.problems);
-            setCategories(categoriesData.categories);
-            setStats(statsData);
+            // データの存在チェックを追加
+            setProblems(problemsData.problems || []);
+            setCategories(categoriesData.categories || []);
+            setStats(statsData || { total: 0, easy: 0, medium: 0, hard: 0 });
         } catch (error) {
             console.error("Failed to fetch data:", error);
+            // エラー時にデフォルト値を設定
+            setProblems([]);
+            setCategories([]);
+            setStats({ total: 0, easy: 0, medium: 0, hard: 0 });
         } finally {
             setLoading(false);
         }
