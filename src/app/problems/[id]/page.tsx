@@ -48,9 +48,12 @@ type Problem = {
         input: string;
         output: string;
     }>;
-    tags: string[];
+    tags: Array<{
+        id: string;
+        name: string;
+        createdAt: string;
+    }>;
 };
-
 const defaultCode = `import fs from "fs";
 
 const input = fs.readFileSync(0, "utf8").trim();
@@ -138,13 +141,13 @@ export default function ProblemPage() {
                         {problem.title}
                     </h1>
                     <div className="flex gap-2 flex-wrap">
-                        <Badge>{problem.category}</Badge>
+                        <Badge>{problem.category[0]}</Badge>
                         <Badge variant="secondary">
                             難易度: {problem.difficulty}
                         </Badge>
                         {problem.tags.map((tag) => (
-                            <Badge key={tag} variant="outline">
-                                {tag}
+                            <Badge key={tag.id} variant="outline">
+                                {tag.name}
                             </Badge>
                         ))}
                     </div>
