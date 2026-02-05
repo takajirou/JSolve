@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 
 import {
@@ -72,21 +72,17 @@ export default function ProblemPage() {
     const [tutorialOpen, setTutorialOpen] = useState(false);
     const [step, setStep] = useState(0);
     const [code, setCode] = useState(defaultCode);
-    const [output, setOutput] = useState("");
 
-    useEffect(() => {
-        fetchProblem();
-        fetchTutorial();
-    }, [problemId]);
-
-    const fetchProblem = async () => {
+    const fetchProblem = useCallback(async () => {
         try {
             setLoading(true);
             const res = await fetch(`/api/problems/${problemId}`);
+
             if (!res.ok) {
                 throw new Error("Problem not found");
             }
-            const data = await res.json();
+
+            const data: Problem = await res.json();
             setProblem(data);
         } catch (error) {
             console.error("Failed to fetch problem:", error);
@@ -94,18 +90,24 @@ export default function ProblemPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [problemId, router]);
 
-    const fetchTutorial = async () => {
+    const fetchTutorial = useCallback(async () => {
         try {
             const res = await fetch(`/api/problems/${problemId}/tutorial`);
-            const data = await res.json();
+            const data: { steps: TutorialStep[] } = await res.json();
+
             setTutorialSteps(data.steps);
             setTutorialOpen(true);
         } catch (error) {
             console.error("Failed to fetch tutorial:", error);
         }
-    };
+    }, [problemId]);
+
+    useEffect(() => {
+        fetchProblem();
+        fetchTutorial();
+    }, [fetchProblem, fetchTutorial]);
 
     const current = tutorialSteps[step];
     const isLastStep = step === tutorialSteps.length - 1;
@@ -246,7 +248,7 @@ export default function ProblemPage() {
                     </CardHeader>
                     <CardContent>
                         <pre className="bg-muted p-4 rounded-md text-sm">
-                            {output || "未実行"}
+                            未実行
                         </pre>
                     </CardContent>
                 </Card>
