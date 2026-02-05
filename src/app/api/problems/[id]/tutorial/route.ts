@@ -248,13 +248,13 @@ console.log(fibonacci(10)); // 55`,
         },
     ],
 };
-
 export async function GET(
     request: NextRequest,
-    { params }: { params: { id: string } },
+    { params }: { params: Promise<{ id: string }> }, // Promise型に変更
 ) {
     try {
-        const problemId = params.id;
+        // params を await で解決
+        const { id: problemId } = await params;
 
         const problem = await prisma.problem.findUnique({
             where: { id: problemId },
