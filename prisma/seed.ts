@@ -1,103 +1,121 @@
-import { PrismaClient, DifficultyLevel } from "@prisma/client";
+import { PrismaClient, DifficultyLevel, WebUsageLevel } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 async function main() {
-    console.log("Start seeding...");
+    console.log("🌱 データベースのシード開始...");
 
-    // カテゴリーの作成
-    const categories = await Promise.all([
-        prisma.category.create({
-            data: {
-                name: "io",
-                displayName: "入出力",
-                description: "標準入力・標準出力の基本処理",
-                order: 1,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "set-map",
-                displayName: "Set / Map",
-                description: "Set と Map を使ったデータ構造の操作",
-                order: 2,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "math",
-                displayName: "数値 / Math",
-                description: "数値計算と Math オブジェクトの活用",
-                order: 3,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "string",
-                displayName: "文字列",
-                description: "文字列操作と変換処理",
-                order: 4,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "sort",
-                displayName: "ソート",
-                description: "配列のソート処理",
-                order: 5,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "loop",
-                displayName: "ループ",
-                description: "for文とループ制御",
-                order: 6,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "algorithm",
-                displayName: "アルゴリズム",
-                description: "基本的なアルゴリズムの実装",
-                order: 7,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "bit",
-                displayName: "ビット演算",
-                description: "ビット演算を使った高速な処理",
-                order: 8,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "array",
-                displayName: "配列操作",
-                description: "配列の操作と累積和",
-                order: 9,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "graph",
-                displayName: "グラフ",
-                description: "グラフ探索アルゴリズム",
-                order: 10,
-            },
-        }),
-        prisma.category.create({
-            data: {
-                name: "dp",
-                displayName: "DP",
-                description: "動的計画法",
-                order: 11,
-            },
-        }),
-    ]);
+    // ========================================
+    // 1. カテゴリーの作成
+    // ========================================
+    console.log("📁 カテゴリーを作成中...");
 
-    // タグの作成
+    const ioCategory = await prisma.category.create({
+        data: {
+            name: "io",
+            displayName: "入出力",
+            description: "標準入力・標準出力の基本処理",
+            order: 1,
+        },
+    });
+
+    const setMapCategory = await prisma.category.create({
+        data: {
+            name: "set-map",
+            displayName: "Set / Map",
+            description: "Set と Map を使ったデータ構造の操作",
+            order: 2,
+        },
+    });
+
+    const mathCategory = await prisma.category.create({
+        data: {
+            name: "math",
+            displayName: "数値 / Math",
+            description: "数値計算と Math オブジェクトの活用",
+            order: 3,
+        },
+    });
+
+    const stringCategory = await prisma.category.create({
+        data: {
+            name: "string",
+            displayName: "文字列",
+            description: "文字列操作と変換処理",
+            order: 4,
+        },
+    });
+
+    const sortCategory = await prisma.category.create({
+        data: {
+            name: "sort",
+            displayName: "ソート",
+            description: "配列のソート処理",
+            order: 5,
+        },
+    });
+
+    const loopCategory = await prisma.category.create({
+        data: {
+            name: "loop",
+            displayName: "ループ",
+            description: "for文とループ制御",
+            order: 6,
+        },
+    });
+
+    const algorithmCategory = await prisma.category.create({
+        data: {
+            name: "algorithm",
+            displayName: "アルゴリズム",
+            description: "基本的なアルゴリズムの実装",
+            order: 7,
+        },
+    });
+
+    const bitCategory = await prisma.category.create({
+        data: {
+            name: "bit",
+            displayName: "ビット演算",
+            description: "ビット演算を使った高速な処理",
+            order: 8,
+        },
+    });
+
+    const arrayCategory = await prisma.category.create({
+        data: {
+            name: "array",
+            displayName: "配列操作",
+            description: "配列の操作と累積和",
+            order: 9,
+        },
+    });
+
+    const graphCategory = await prisma.category.create({
+        data: {
+            name: "graph",
+            displayName: "グラフ",
+            description: "グラフ探索アルゴリズム",
+            order: 10,
+        },
+    });
+
+    const dpCategory = await prisma.category.create({
+        data: {
+            name: "dp",
+            displayName: "DP",
+            description: "動的計画法",
+            order: 11,
+        },
+    });
+
+    console.log(`✅ ${11}個のカテゴリーを作成しました`);
+
+    // ========================================
+    // 2. タグの作成
+    // ========================================
+    console.log("🏷️  タグを作成中...");
+
     await Promise.all([
         prisma.tag.create({ data: { name: "fs.readFileSync" } }),
         prisma.tag.create({ data: { name: "process.stdin" } }),
@@ -117,27 +135,25 @@ async function main() {
         prisma.tag.create({ data: { name: "DP" } }),
     ]);
 
-    // 問題の作成
-    const ioCategory = categories.find((c) => c.name === "io")!;
-    const setMapCategory = categories.find((c) => c.name === "set-map")!;
-    const mathCategory = categories.find((c) => c.name === "math")!;
-    // const stringCategory = categories.find((c) => c.name === "string")!;
-    // const sortCategory = categories.find((c) => c.name === "sort")!;
-    // const loopCategory = categories.find((c) => c.name === "loop")!;
-    const algorithmCategory = categories.find((c) => c.name === "algorithm")!;
-    const bitCategory = categories.find((c) => c.name === "bit")!;
-    const arrayCategory = categories.find((c) => c.name === "array")!;
-    const graphCategory = categories.find((c) => c.name === "graph")!;
-    const dpCategory = categories.find((c) => c.name === "dp")!;
+    console.log("✅ 16個のタグを作成しました");
 
-    // fs.readFileSync 問題
-    const fsReadProblem = await prisma.problem.create({
+    // ========================================
+    // 3. 問題の作成
+    // ========================================
+    console.log("📝 問題を作成中...");
+
+    // -------------------------------------
+    // 問題1: fs.readFileSyncの基本
+    // -------------------------------------
+    const problem1 = await prisma.problem.create({
         data: {
             title: "標準入力を受け取って出力せよ",
             description:
                 "整数 N が 1 行で与えられます。N をそのまま出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: ioCategory.id,
+            functionName: "fs.readFileSync",
+            webUsage: WebUsageLevel.NONE,
             explanation: `fs.readFileSync(0, 'utf8') を使うことで、標準入力全体を文字列として読み込めます。
 0 は標準入力を表すファイルディスクリプタです。
 trim() を使って末尾の改行を削除し、必要に応じて parseInt で数値に変換します。`,
@@ -155,21 +171,21 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: fsReadProblem.id,
+                problemId: problem1.id,
                 input: "5",
                 output: "5",
                 isHidden: false,
                 order: 1,
             },
             {
-                problemId: fsReadProblem.id,
+                problemId: problem1.id,
                 input: "100",
                 output: "100",
                 isHidden: false,
                 order: 2,
             },
             {
-                problemId: fsReadProblem.id,
+                problemId: problem1.id,
                 input: "1000000000",
                 output: "1000000000",
                 isHidden: true,
@@ -178,14 +194,18 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
         ],
     });
 
-    // process.stdin 問題
-    const stdinProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題2: process.stdinの基本
+    // -------------------------------------
+    const problem2 = await prisma.problem.create({
         data: {
             title: "ストリームで標準入力を受け取れ",
             description:
                 "複数行の整数が与えられます。各行をそのまま出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: ioCategory.id,
+            functionName: "process.stdin",
+            webUsage: WebUsageLevel.NONE,
             explanation: `process.stdin.on('data') を使うことで、ストリームとして標準入力を扱えます。
 大量のデータを扱う場合に有効です。`,
             sampleInput: "1\n2\n3",
@@ -202,7 +222,7 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: stdinProblem.id,
+                problemId: problem2.id,
                 input: "1\n2\n3",
                 output: "1\n2\n3",
                 isHidden: false,
@@ -211,14 +231,18 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
         ],
     });
 
-    // Set 基本問題
-    const setProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題3: Setの基本
+    // -------------------------------------
+    const problem3 = await prisma.problem.create({
         data: {
             title: "配列から重複を削除せよ",
             description:
                 "N 個の整数が与えられます。重複を削除した個数を出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: setMapCategory.id,
+            functionName: "Set",
+            webUsage: WebUsageLevel.NONE,
             explanation: `new Set() を使うことで、重複を自動的に削除できます。
 配列から Set を作成し、.size で要素数を取得します。`,
             sampleInput: "5\n1 2 2 3 3",
@@ -235,14 +259,14 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: setProblem.id,
+                problemId: problem3.id,
                 input: "5\n1 2 2 3 3",
                 output: "3",
                 isHidden: false,
                 order: 1,
             },
             {
-                problemId: setProblem.id,
+                problemId: problem3.id,
                 input: "3\n1 1 1",
                 output: "1",
                 isHidden: false,
@@ -251,14 +275,18 @@ trim() を使って末尾の改行を削除し、必要に応じて parseInt で
         ],
     });
 
-    // Map 基本問題
-    const mapProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題4: Mapの基本
+    // -------------------------------------
+    const problem4 = await prisma.problem.create({
         data: {
             title: "各要素の出現回数を数えよ",
             description:
                 "N 個の整数が与えられます。最も多く出現する整数の出現回数を出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: setMapCategory.id,
+            functionName: "Map",
+            webUsage: WebUsageLevel.NONE,
             explanation: `Map を使って各要素の出現回数を記録します。
 map.get(key) ?? 0 で、未定義の場合は 0 を返すことができます。`,
             sampleInput: "5\n1 2 2 3 3",
@@ -275,7 +303,7 @@ map.get(key) ?? 0 で、未定義の場合は 0 を返すことができます�
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: mapProblem.id,
+                problemId: problem4.id,
                 input: "5\n1 2 2 3 3",
                 output: "2",
                 isHidden: false,
@@ -284,13 +312,17 @@ map.get(key) ?? 0 で、未定義の場合は 0 を返すことができます�
         ],
     });
 
-    // Math.min 問題
-    const mathMinProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題5: Math.minの基本
+    // -------------------------------------
+    const problem5 = await prisma.problem.create({
         data: {
             title: "配列の最小値を求めよ",
             description: "N 個の整数が与えられます。最小値を出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: mathCategory.id,
+            functionName: "Math.min",
+            webUsage: WebUsageLevel.NONE,
             explanation: `Math.min() をスプレッド構文で使うと、大きな配列でスタックオーバーフローする可能性があります。
 for ループで最小値を更新する方が安全です。`,
             sampleInput: "3\n5 2 8",
@@ -307,7 +339,7 @@ for ループで最小値を更新する方が安全です。`,
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: mathMinProblem.id,
+                problemId: problem5.id,
                 input: "3\n5 2 8",
                 output: "2",
                 isHidden: false,
@@ -316,14 +348,18 @@ for ループで最小値を更新する方が安全です。`,
         ],
     });
 
-    // ビット全探索問題
-    const bitEnumerateProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題6: ビット全探索
+    // -------------------------------------
+    const problem6 = await prisma.problem.create({
         data: {
             title: "すべての部分集合の和を求めよ",
             description:
                 "N 個の整数が与えられます。すべての部分集合の和の総和を出力してください。",
             difficulty: DifficultyLevel.MEDIUM,
             categoryId: bitCategory.id,
+            functionName: "ビット演算",
+            webUsage: WebUsageLevel.NONE,
             explanation: `ビット全探索を使って、すべての部分集合を列挙します。
 (1 << n) で 2^n を計算し、mask & (1 << i) で i 番目の要素が含まれるか判定します。`,
             sampleInput: "3\n1 2 3",
@@ -340,7 +376,7 @@ for ループで最小値を更新する方が安全です。`,
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: bitEnumerateProblem.id,
+                problemId: problem6.id,
                 input: "3\n1 2 3",
                 output: "24",
                 isHidden: false,
@@ -349,14 +385,18 @@ for ループで最小値を更新する方が安全です。`,
         ],
     });
 
-    // 二分探索問題
-    const binarySearchProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題7: 二分探索
+    // -------------------------------------
+    const problem7 = await prisma.problem.create({
         data: {
             title: "ソート済み配列から値を探せ",
             description:
                 "N 個のソート済み整数と、クエリ Q が与えられます。Q が配列に含まれるか判定してください。",
             difficulty: DifficultyLevel.MEDIUM,
             categoryId: algorithmCategory.id,
+            functionName: "二分探索",
+            webUsage: WebUsageLevel.NONE,
             explanation: `二分探索を使って、O(log N) で値を検索します。
 while (left < right) のループで、中央値を比較しながら範囲を狭めます。`,
             sampleInput: "5 3\n1 2 4 7 9",
@@ -373,14 +413,14 @@ while (left < right) のループで、中央値を比較しながら範囲を�
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: binarySearchProblem.id,
+                problemId: problem7.id,
                 input: "5 3\n1 2 4 7 9",
                 output: "NO",
                 isHidden: false,
                 order: 1,
             },
             {
-                problemId: binarySearchProblem.id,
+                problemId: problem7.id,
                 input: "5 7\n1 2 4 7 9",
                 output: "YES",
                 isHidden: false,
@@ -389,14 +429,18 @@ while (left < right) のループで、中央値を比較しながら範囲を�
         ],
     });
 
-    // 累積和問題
-    const prefixSumProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題8: 累積和
+    // -------------------------------------
+    const problem8 = await prisma.problem.create({
         data: {
             title: "区間和クエリに答えよ",
             description:
                 "N 個の整数と Q 個のクエリが与えられます。各クエリ [L, R] に対して区間和を出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: arrayCategory.id,
+            functionName: "累積和",
+            webUsage: WebUsageLevel.NONE,
             explanation: `累積和を事前に計算しておくことで、各クエリを O(1) で処理できます。
 prefix[i] = prefix[i-1] + a[i] で累積和を構築します。`,
             sampleInput: "5 2\n1 2 3 4 5\n1 3\n2 5",
@@ -413,7 +457,7 @@ prefix[i] = prefix[i-1] + a[i] で累積和を構築します。`,
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: prefixSumProblem.id,
+                problemId: problem8.id,
                 input: "5 2\n1 2 3 4 5\n1 3\n2 5",
                 output: "6\n14",
                 isHidden: false,
@@ -422,14 +466,18 @@ prefix[i] = prefix[i-1] + a[i] で累積和を構築します。`,
         ],
     });
 
-    // BFS問題
-    const bfsProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題9: BFS（幅優先探索）
+    // -------------------------------------
+    const problem9 = await prisma.problem.create({
         data: {
             title: "迷路の最短経路を求めよ",
             description:
                 "H×W のグリッドが与えられます。S から G までの最短距離を出力してください。",
             difficulty: DifficultyLevel.EASY,
             categoryId: graphCategory.id,
+            functionName: "BFS",
+            webUsage: WebUsageLevel.NONE,
             explanation: `幅優先探索(BFS)を使って、最短経路を求めます。
 queue.shift() でキューから要素を取り出し、隣接セルを探索します。`,
             sampleInput: "3 3\nS..\n.#.\n..G",
@@ -446,7 +494,7 @@ queue.shift() でキューから要素を取り出し、隣接セルを探索し
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: bfsProblem.id,
+                problemId: problem9.id,
                 input: "3 3\nS..\n.#.\n..G",
                 output: "4",
                 isHidden: false,
@@ -455,14 +503,18 @@ queue.shift() でキューから要素を取り出し、隣接セルを探索し
         ],
     });
 
-    // DP問題
-    const dpProblem = await prisma.problem.create({
+    // -------------------------------------
+    // 問題10: 動的計画法
+    // -------------------------------------
+    const problem10 = await prisma.problem.create({
         data: {
             title: "フィボナッチ数列の N 項目を求めよ",
             description:
                 "整数 N が与えられます。フィボナッチ数列の N 項目を出力してください。",
             difficulty: DifficultyLevel.MEDIUM,
             categoryId: dpCategory.id,
+            functionName: "DP",
+            webUsage: WebUsageLevel.NONE,
             explanation: `動的計画法を使って、フィボナッチ数列を効率的に計算します。
 dp[i] = dp[i-1] + dp[i-2] の遷移式で求めます。`,
             sampleInput: "10",
@@ -479,14 +531,14 @@ dp[i] = dp[i-1] + dp[i-2] の遷移式で求めます。`,
     await prisma.testCase.createMany({
         data: [
             {
-                problemId: dpProblem.id,
+                problemId: problem10.id,
                 input: "10",
                 output: "55",
                 isHidden: false,
                 order: 1,
             },
             {
-                problemId: dpProblem.id,
+                problemId: problem10.id,
                 input: "1",
                 output: "1",
                 isHidden: false,
@@ -495,12 +547,18 @@ dp[i] = dp[i-1] + dp[i-2] の遷移式で求めます。`,
         ],
     });
 
-    console.log("Seeding completed!");
+    console.log("✅ 10個の問題とテストケースを作成しました");
+
+    console.log("\n🎉 シード完了!");
+    console.log("📊 作成したデータ:");
+    console.log(`   - カテゴリー: 11個`);
+    console.log(`   - タグ: 16個`);
+    console.log(`   - 問題: 10個`);
 }
 
 main()
     .catch((e) => {
-        console.error(e);
+        console.error("❌ エラーが発生しました:", e);
         process.exit(1);
     })
     .finally(async () => {
