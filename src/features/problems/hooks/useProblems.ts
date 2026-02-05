@@ -63,7 +63,7 @@ export function useProblems() {
         };
 
         fetchData();
-    }, [stats]);
+    }, []);
 
     return { problems, categories, stats, loading };
 }
