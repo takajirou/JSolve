@@ -4,7 +4,13 @@ const nextConfig: NextConfig = {
     reactStrictMode: true,
 
     images: {
-        domains: ["example.com"],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "example.com",
+                pathname: "/**",
+            },
+        ],
     },
 };
 export default nextConfig;
