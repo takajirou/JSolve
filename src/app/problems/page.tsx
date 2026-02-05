@@ -96,7 +96,6 @@ export default function CompetitiveProgrammingSite() {
                 fetch("/api/categories"),
                 fetch("/api/stats"),
             ]);
-            console.log("fetch");
 
             // レスポンスのステータスチェックを追加
             if (!problemsRes.ok || !categoriesRes.ok || !statsRes.ok) {

@@ -7,6 +7,9 @@ CREATE TYPE "KnowledgeLevel" AS ENUM ('UNKNOWN', 'LEARNING', 'UNCERTAIN', 'MASTE
 -- CreateEnum
 CREATE TYPE "AttemptResult" AS ENUM ('ACCEPTED', 'WRONG_ANSWER', 'TIME_LIMIT_EXCEEDED', 'RUNTIME_ERROR', 'COMPILE_ERROR');
 
+-- CreateEnum
+CREATE TYPE "WebUsageLevel" AS ENUM ('NONE', 'LOW', 'DANGEROUS');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
@@ -44,19 +47,23 @@ CREATE TABLE "Tag" (
 CREATE TABLE "Problem" (
     "id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
+    "functionName" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "difficulty" "DifficultyLevel" NOT NULL,
+    "webUsage" "WebUsageLevel" NOT NULL,
+    "section" TEXT,
+    "order" INTEGER NOT NULL DEFAULT 0,
     "categoryId" TEXT NOT NULL,
-    "createdBy" TEXT,
-    "isOfficial" BOOLEAN NOT NULL DEFAULT true,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
     "explanation" TEXT NOT NULL,
     "sampleInput" TEXT NOT NULL,
     "sampleOutput" TEXT NOT NULL,
     "constraints" TEXT,
     "timeLimit" INTEGER NOT NULL DEFAULT 2000,
     "memoryLimit" INTEGER NOT NULL DEFAULT 256,
+    "createdBy" TEXT,
+    "isOfficial" BOOLEAN NOT NULL DEFAULT true,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Problem_pkey" PRIMARY KEY ("id")
 );
@@ -92,8 +99,8 @@ CREATE TABLE "KnowledgeStatus" (
     "userId" TEXT NOT NULL,
     "categoryId" TEXT NOT NULL,
     "status" "KnowledgeLevel" NOT NULL,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "KnowledgeStatus_pkey" PRIMARY KEY ("id")
 );
@@ -106,9 +113,9 @@ CREATE TABLE "ProblemAttempt" (
     "code" TEXT NOT NULL,
     "result" "AttemptResult" NOT NULL,
     "executionTime" INTEGER,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "errorMessage" TEXT,
     "failedTestCase" INTEGER,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "ProblemAttempt_pkey" PRIMARY KEY ("id")
 );
@@ -127,15 +134,44 @@ CREATE TABLE "AchievementRecord" (
 );
 
 -- CreateTable
+CREATE TABLE "FunctionTutorial" (
+    "id" TEXT NOT NULL,
+    "problemId" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "FunctionTutorial_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "TutorialStep" (
+    "id" TEXT NOT NULL,
+    "tutorialId" TEXT NOT NULL,
+    "order" INTEGER NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "code" TEXT,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "TutorialStep_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "_CategoryToTag" (
     "A" TEXT NOT NULL,
-    "B" TEXT NOT NULL
+    "B" TEXT NOT NULL,
+
+    CONSTRAINT "_CategoryToTag_AB_pkey" PRIMARY KEY ("A","B")
 );
 
 -- CreateTable
 CREATE TABLE "_ProblemToTag" (
     "A" TEXT NOT NULL,
-    "B" TEXT NOT NULL
+    "B" TEXT NOT NULL,
+
+    CONSTRAINT "_ProblemToTag_AB_pkey" PRIMARY KEY ("A","B")
 );
 
 -- CreateIndex
@@ -163,7 +199,13 @@ CREATE INDEX "Problem_categoryId_idx" ON "Problem"("categoryId");
 CREATE INDEX "Problem_difficulty_idx" ON "Problem"("difficulty");
 
 -- CreateIndex
-CREATE INDEX "Problem_createdBy_idx" ON "Problem"("createdBy");
+CREATE INDEX "Problem_webUsage_idx" ON "Problem"("webUsage");
+
+-- CreateIndex
+CREATE INDEX "Problem_section_idx" ON "Problem"("section");
+
+-- CreateIndex
+CREATE INDEX "Problem_order_idx" ON "Problem"("order");
 
 -- CreateIndex
 CREATE INDEX "Problem_isOfficial_idx" ON "Problem"("isOfficial");
@@ -217,13 +259,16 @@ CREATE INDEX "AchievementRecord_date_idx" ON "AchievementRecord"("date");
 CREATE UNIQUE INDEX "AchievementRecord_userId_date_key" ON "AchievementRecord"("userId", "date");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "_CategoryToTag_AB_unique" ON "_CategoryToTag"("A", "B");
+CREATE UNIQUE INDEX "FunctionTutorial_problemId_key" ON "FunctionTutorial"("problemId");
+
+-- CreateIndex
+CREATE INDEX "TutorialStep_tutorialId_idx" ON "TutorialStep"("tutorialId");
+
+-- CreateIndex
+CREATE INDEX "TutorialStep_order_idx" ON "TutorialStep"("order");
 
 -- CreateIndex
 CREATE INDEX "_CategoryToTag_B_index" ON "_CategoryToTag"("B");
-
--- CreateIndex
-CREATE UNIQUE INDEX "_ProblemToTag_AB_unique" ON "_ProblemToTag"("A", "B");
 
 -- CreateIndex
 CREATE INDEX "_ProblemToTag_B_index" ON "_ProblemToTag"("B");
@@ -257,6 +302,12 @@ ALTER TABLE "ProblemAttempt" ADD CONSTRAINT "ProblemAttempt_problemId_fkey" FORE
 
 -- AddForeignKey
 ALTER TABLE "AchievementRecord" ADD CONSTRAINT "AchievementRecord_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "FunctionTutorial" ADD CONSTRAINT "FunctionTutorial_problemId_fkey" FOREIGN KEY ("problemId") REFERENCES "Problem"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "TutorialStep" ADD CONSTRAINT "TutorialStep_tutorialId_fkey" FOREIGN KEY ("tutorialId") REFERENCES "FunctionTutorial"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_CategoryToTag" ADD CONSTRAINT "_CategoryToTag_A_fkey" FOREIGN KEY ("A") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;
