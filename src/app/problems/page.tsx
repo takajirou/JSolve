@@ -6,6 +6,7 @@ import { ProblemsHeader } from "@/features/problems/components/ProblemsHeader";
 import { ProblemsSummary } from "@/features/problems/components/ProblemsSummary";
 import { ProblemsFilter } from "@/features/problems/components/ProblemsFilter";
 import { ProblemCard } from "@/features/problems/components/ProblemCard";
+import Loading from "@/components/ui/loading";
 
 export default function ProblemsPage() {
     const { problems, categories, stats, loading } = useProblems();
@@ -13,7 +14,7 @@ export default function ProblemsPage() {
     const [search, setSearch] = useState("");
     const [category, setCategory] = useState("全て");
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <Loading />;
 
     const filtered = problems.filter(
         (p) =>

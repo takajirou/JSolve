@@ -3,7 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { useParams, useRouter } from "next/navigation";
 
-import { Loader2 } from "lucide-react";
+import Loading from "@/components/ui/loading";
 
 import { Problem, TutorialStep } from "@/features/problems/types/problem";
 
@@ -141,14 +141,7 @@ export default function ProblemPage() {
      * ===================== */
 
     if (loading || !problem) {
-        return (
-            <div className="min-h-screen bg-background flex items-center justify-center">
-                <div className="text-center">
-                    <Loader2 className="h-12 w-12 animate-spin text-primary mx-auto" />
-                    <p className="mt-4 text-muted-foreground">読み込み中...</p>
-                </div>
-            </div>
-        );
+        return <Loading />;
     }
 
     /* =====================
