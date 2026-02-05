@@ -82,13 +82,23 @@ export async function GET(request: NextRequest) {
     } catch (error: unknown) {
         console.error("Error fetching problems:", error);
 
+        // より詳細なエラー情報を返す
+        const errorMessage =
+            error instanceof Error ? error.message : "Unknown error";
+        console.error("Detailed error:", errorMessage);
+
         return NextResponse.json(
-            { error: "Failed to fetch problems" },
+            {
+                error: "Failed to fetch problems",
+                details:
+                    process.env.NODE_ENV === "development"
+                        ? errorMessage
+                        : undefined,
+            },
             { status: 500 },
         );
     }
 }
-
 function determineWebUsage(categoryName: string): "LOW" | "NONE" | "DANGEROUS" {
     const noneCategories = ["io", "bit"];
     const dangerousCategories = ["math"];
