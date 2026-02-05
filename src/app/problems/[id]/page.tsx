@@ -14,6 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CodeEditor } from "@/features/editor/components/editor";
 import {
     Dialog,
     DialogContent,
@@ -78,6 +79,8 @@ export default function ProblemPage() {
     const [tutorialOpen, setTutorialOpen] = useState(false);
     const [step, setStep] = useState(0);
     const [code, setCode] = useState(defaultCode);
+    const [runOutput, setRunOutput] = useState<string>("未実行");
+    const [isRunning, setIsRunning] = useState(false);
 
     const fetchProblem = useCallback(async () => {
         try {
@@ -121,6 +124,42 @@ export default function ProblemPage() {
     const handleSubmit = async () => {
         // TODO: 回答提出のロジックを実装
         alert("回答提出機能は実装中です");
+    };
+
+    const handleRunTest = async () => {
+        if (!problem) {
+            return;
+        }
+        setIsRunning(true);
+
+        try {
+            const res = await fetch("/api/run", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    code,
+                    input: problem.sampleInput,
+                }),
+            });
+
+            const data: {
+                stdout?: string;
+                stderr?: string;
+                result?: string;
+            } = await res.json();
+
+            if (data.result === "TIME_LIMIT_EXCEEDED") {
+                setRunOutput("実行時間制限超過");
+            } else if (data.stderr) {
+                setRunOutput(`エラー:\n${data.stderr}`);
+            } else {
+                setRunOutput(data.stdout || "（出力なし）");
+            }
+        } catch {
+            setRunOutput("サーバー実行に失敗しました");
+        } finally {
+            setIsRunning(false);
+        }
     };
 
     if (loading || !problem) {
@@ -208,12 +247,12 @@ export default function ProblemPage() {
                         <CardHeader>
                             <CardTitle>コードエディタ</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-1">
-                            <textarea
+                        <CardContent className="flex-1 p-0">
+                            <CodeEditor
                                 value={code}
-                                onChange={(e) => setCode(e.target.value)}
-                                className="w-full h-full font-mono text-sm p-4 border rounded-md bg-muted resize-none focus:outline-none focus:ring-2 focus:ring-primary"
-                                spellCheck={false}
+                                onChange={setCode}
+                                language="typescript"
+                                height="100%"
                             />
                         </CardContent>
                     </Card>
@@ -240,6 +279,18 @@ export default function ProblemPage() {
                             チュートリアルを再確認
                         </Button>
                     </div>
+                    <Button
+                        variant="secondary"
+                        onClick={handleRunTest}
+                        disabled={isRunning}
+                    >
+                        {isRunning ? (
+                            <Loader2 className="h-4 w-4 mr-1 animate-spin" />
+                        ) : (
+                            <Code2 className="h-4 w-4 mr-1" />
+                        )}
+                        実行（出力テスト）
+                    </Button>
 
                     <Button onClick={handleSubmit}>
                         <PenLine className="h-4 w-4 mr-1" />
@@ -250,11 +301,11 @@ export default function ProblemPage() {
                 {/* ===== Output ===== */}
                 <Card>
                     <CardHeader>
-                        <CardTitle>実行結果</CardTitle>
+                        <CardTitle>実行結果（サンプル入力）</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <pre className="bg-muted p-4 rounded-md text-sm">
-                            未実行
+                        <pre className="bg-muted p-4 rounded-md text-sm whitespace-pre-wrap">
+                            {runOutput}
                         </pre>
                     </CardContent>
                 </Card>
