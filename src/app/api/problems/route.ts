@@ -1,30 +1,37 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Prisma, DifficultyLevel } from "@prisma/client";
 
 const prisma = new PrismaClient();
+
+const isDifficultyLevel = (value: string): value is DifficultyLevel => {
+    return Object.values(DifficultyLevel).includes(value as DifficultyLevel);
+};
 
 export async function GET(request: NextRequest) {
     try {
         const searchParams = request.nextUrl.searchParams;
-        const category = searchParams.get("category");
         const difficulty = searchParams.get("difficulty");
-        const section = searchParams.get("section");
+        const category = searchParams.get("category");
         const search = searchParams.get("search");
 
-        // フィルター条件の構築
-        const where: any = {};
+        const where: Prisma.ProblemWhereInput = {};
+
+        if (
+            difficulty &&
+            difficulty !== "ALL" &&
+            isDifficultyLevel(difficulty)
+        ) {
+            where.difficulty = difficulty;
+        }
 
         if (category && category !== "全て") {
             const categoryRecord = await prisma.category.findFirst({
                 where: { displayName: category },
             });
+
             if (categoryRecord) {
                 where.categoryId = categoryRecord.id;
             }
-        }
-
-        if (difficulty && difficulty !== "ALL") {
-            where.difficulty = difficulty;
         }
 
         if (search) {
@@ -34,7 +41,6 @@ export async function GET(request: NextRequest) {
             ];
         }
 
-        // 問題の取得
         const problems = await prisma.problem.findMany({
             where,
             include: {
@@ -49,7 +55,6 @@ export async function GET(request: NextRequest) {
             orderBy: [{ category: { order: "asc" } }, { difficulty: "asc" }],
         });
 
-        // レスポンス形式に変換
         const formattedProblems = problems.map((problem) => ({
             id: problem.id,
             functionName: problem.title,
@@ -74,8 +79,9 @@ export async function GET(request: NextRequest) {
             problems: formattedProblems,
             total: formattedProblems.length,
         });
-    } catch (error) {
+    } catch (error: unknown) {
         console.error("Error fetching problems:", error);
+
         return NextResponse.json(
             { error: "Failed to fetch problems" },
             { status: 500 },

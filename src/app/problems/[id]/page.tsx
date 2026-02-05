@@ -7,7 +7,6 @@ import {
     Code2,
     ArrowRight,
     ArrowLeft,
-    X,
     RefreshCcw,
     PenLine,
     Loader2,
@@ -21,8 +20,6 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import { CodeEditor } from "@/features/editor/components/editor";
-import { transformCodeForBrowser } from "@/features/editor/lib/transformCodeForBrowser";
 
 /* =====================
  * Types
@@ -112,7 +109,6 @@ export default function ProblemPage() {
 
     const current = tutorialSteps[step];
     const isLastStep = step === tutorialSteps.length - 1;
-
 
     const handleSubmit = async () => {
         // TODO: 回答提出のロジックを実装

@@ -98,7 +98,7 @@ async function main() {
     ]);
 
     // タグの作成
-    const tags = await Promise.all([
+    await Promise.all([
         prisma.tag.create({ data: { name: "fs.readFileSync" } }),
         prisma.tag.create({ data: { name: "process.stdin" } }),
         prisma.tag.create({ data: { name: "Set" } }),
@@ -121,9 +121,9 @@ async function main() {
     const ioCategory = categories.find((c) => c.name === "io")!;
     const setMapCategory = categories.find((c) => c.name === "set-map")!;
     const mathCategory = categories.find((c) => c.name === "math")!;
-    const stringCategory = categories.find((c) => c.name === "string")!;
-    const sortCategory = categories.find((c) => c.name === "sort")!;
-    const loopCategory = categories.find((c) => c.name === "loop")!;
+    // const stringCategory = categories.find((c) => c.name === "string")!;
+    // const sortCategory = categories.find((c) => c.name === "sort")!;
+    // const loopCategory = categories.find((c) => c.name === "loop")!;
     const algorithmCategory = categories.find((c) => c.name === "algorithm")!;
     const bitCategory = categories.find((c) => c.name === "bit")!;
     const arrayCategory = categories.find((c) => c.name === "array")!;
