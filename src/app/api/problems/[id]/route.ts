@@ -10,7 +10,6 @@ const prisma = globalForPrisma.prisma ?? new PrismaClient();
 if (process.env.NODE_ENV !== "production") {
     globalForPrisma.prisma = prisma;
 }
-
 export async function GET(
     _request: Request,
     context: { params: Promise<{ id: string }> },
@@ -23,6 +22,7 @@ export async function GET(
             include: {
                 category: true,
                 tags: true,
+                testCases: true, // ← 追加
             },
         });
 
