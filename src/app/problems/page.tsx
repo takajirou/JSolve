@@ -12,14 +12,14 @@ export default function ProblemsPage() {
     const { problems, categories, stats, loading } = useProblems();
 
     const [search, setSearch] = useState("");
-    const [category, setCategory] = useState("全て");
+    const [functionKey, setFunctionKey] = useState("全て");
 
     if (loading) return <Loading />;
 
     const filtered = problems.filter(
         (p) =>
-            (category === "全て" || p.category === category) &&
-            p.functionName.includes(search),
+            (functionKey === "全て" || p.functionKeys.includes(functionKey)) &&
+            (p.title.includes(search) || p.description.includes(search)),
     );
 
     return (
@@ -32,8 +32,8 @@ export default function ProblemsPage() {
                 searchText={search}
                 onSearchChange={setSearch}
                 categories={["全て", ...categories.map((c) => c.displayName)]}
-                selectedCategory={category}
-                onSelectCategory={setCategory}
+                selectedCategory={functionKey}
+                onSelectCategory={setFunctionKey}
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
