@@ -1,0 +1,28 @@
+{
+  "staticKey": "p007",
+  "title": "配列の初期化",
+  "description": "整数 N と K が与えられます。長さ N で全ての要素が K である配列を作成し、スペース区切りで出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.fill"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.fill は配列の全要素を指定した値で埋めます。new Array(n).fill(value) で初期化できます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const arr = new Array(n).fill(k);\nconsole.log(arr.join(' '));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5 3",
+      "output": "3 3 3 3 3"
+    },
+    {
+      "input": "3 0",
+      "output": "0 0 0"
+    }
+  ]
+}

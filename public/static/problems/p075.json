@@ -1,9 +1,0 @@
-{
-  "staticKey": "p075",
-  "title": "String.split 基本問題",
-  "description": "文字列 S が与えられます。空白で分割してカンマ区切りで出力してください。",
-  "difficulty": "EASY",
-  "functionKeys": [
-    "String.split"
-  ]
-}

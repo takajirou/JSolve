@@ -1,1002 +1,802 @@
 [
-  {
-    "id": "math-max-01",
-    "title": "Math.max を使った問題 1",
-    "description": "Math.max を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.max"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-max-02",
-    "title": "Math.max を使った問題 2",
-    "description": "Math.max を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.max"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-max-03",
-    "title": "Math.max を使った問題 3",
-    "description": "Math.max を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.max"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-max-04",
-    "title": "Math.max を使った問題 4",
-    "description": "Math.max を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.max"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-max-05",
-    "title": "Math.max を使った問題 5",
-    "description": "Math.max を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.max"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-min-01",
-    "title": "Math.min を使った問題 1",
-    "description": "Math.min を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.min"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-min-02",
-    "title": "Math.min を使った問題 2",
-    "description": "Math.min を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.min"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-min-03",
-    "title": "Math.min を使った問題 3",
-    "description": "Math.min を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.min"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-min-04",
-    "title": "Math.min を使った問題 4",
-    "description": "Math.min を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.min"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-min-05",
-    "title": "Math.min を使った問題 5",
-    "description": "Math.min を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.min"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-map-01",
-    "title": "Array.map を使った問題 1",
-    "description": "Array.map を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-map-02",
-    "title": "Array.map を使った問題 2",
-    "description": "Array.map を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-map-03",
-    "title": "Array.map を使った問題 3",
-    "description": "Array.map を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-map-04",
-    "title": "Array.map を使った問題 4",
-    "description": "Array.map を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-map-05",
-    "title": "Array.map を使った問題 5",
-    "description": "Array.map を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-filter-01",
-    "title": "Array.filter を使った問題 1",
-    "description": "Array.filter を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.filter"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-filter-02",
-    "title": "Array.filter を使った問題 2",
-    "description": "Array.filter を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.filter"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-filter-03",
-    "title": "Array.filter を使った問題 3",
-    "description": "Array.filter を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.filter"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-filter-04",
-    "title": "Array.filter を使った問題 4",
-    "description": "Array.filter を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.filter"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-filter-05",
-    "title": "Array.filter を使った問題 5",
-    "description": "Array.filter を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.filter"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-reduce-01",
-    "title": "Array.reduce を使った問題 1",
-    "description": "Array.reduce を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.reduce"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-reduce-02",
-    "title": "Array.reduce を使った問題 2",
-    "description": "Array.reduce を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.reduce"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-reduce-03",
-    "title": "Array.reduce を使った問題 3",
-    "description": "Array.reduce を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.reduce"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-reduce-04",
-    "title": "Array.reduce を使った問題 4",
-    "description": "Array.reduce を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.reduce"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-reduce-05",
-    "title": "Array.reduce を使った問題 5",
-    "description": "Array.reduce を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.reduce"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-sort-01",
-    "title": "Array.sort を使った問題 1",
-    "description": "Array.sort を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.sort"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-sort-02",
-    "title": "Array.sort を使った問題 2",
-    "description": "Array.sort を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.sort"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-sort-03",
-    "title": "Array.sort を使った問題 3",
-    "description": "Array.sort を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.sort"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-sort-04",
-    "title": "Array.sort を使った問題 4",
-    "description": "Array.sort を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.sort"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-sort-05",
-    "title": "Array.sort を使った問題 5",
-    "description": "Array.sort を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.sort"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-find-01",
-    "title": "Array.find を使った問題 1",
-    "description": "Array.find を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.find"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-find-02",
-    "title": "Array.find を使った問題 2",
-    "description": "Array.find を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.find"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-find-03",
-    "title": "Array.find を使った問題 3",
-    "description": "Array.find を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.find"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-find-04",
-    "title": "Array.find を使った問題 4",
-    "description": "Array.find を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.find"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-find-05",
-    "title": "Array.find を使った問題 5",
-    "description": "Array.find を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.find"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-some-01",
-    "title": "Array.some を使った問題 1",
-    "description": "Array.some を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.some"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-some-02",
-    "title": "Array.some を使った問題 2",
-    "description": "Array.some を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.some"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-some-03",
-    "title": "Array.some を使った問題 3",
-    "description": "Array.some を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.some"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-some-04",
-    "title": "Array.some を使った問題 4",
-    "description": "Array.some を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.some"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-some-05",
-    "title": "Array.some を使った問題 5",
-    "description": "Array.some を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.some"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-every-01",
-    "title": "Array.every を使った問題 1",
-    "description": "Array.every を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.every"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-every-02",
-    "title": "Array.every を使った問題 2",
-    "description": "Array.every を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.every"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-every-03",
-    "title": "Array.every を使った問題 3",
-    "description": "Array.every を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.every"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-every-04",
-    "title": "Array.every を使った問題 4",
-    "description": "Array.every を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.every"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-every-05",
-    "title": "Array.every を使った問題 5",
-    "description": "Array.every を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.every"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-split-01",
-    "title": "String.split を使った問題 1",
-    "description": "String.split を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.split"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-split-02",
-    "title": "String.split を使った問題 2",
-    "description": "String.split を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.split"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-split-03",
-    "title": "String.split を使った問題 3",
-    "description": "String.split を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.split"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-split-04",
-    "title": "String.split を使った問題 4",
-    "description": "String.split を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.split"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-split-05",
-    "title": "String.split を使った問題 5",
-    "description": "String.split を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.split"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-join-01",
-    "title": "String.join を使った問題 1",
-    "description": "String.join を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.join"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-join-02",
-    "title": "String.join を使った問題 2",
-    "description": "String.join を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.join"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-join-03",
-    "title": "String.join を使った問題 3",
-    "description": "String.join を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.join"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-join-04",
-    "title": "String.join を使った問題 4",
-    "description": "String.join を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.join"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-join-05",
-    "title": "String.join を使った問題 5",
-    "description": "String.join を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "String.join"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-includes-01",
-    "title": "String.includes を使った問題 1",
-    "description": "String.includes を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "String.includes"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-includes-02",
-    "title": "String.includes を使った問題 2",
-    "description": "String.includes を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "String.includes"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-includes-03",
-    "title": "String.includes を使った問題 3",
-    "description": "String.includes を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "String.includes"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-includes-04",
-    "title": "String.includes を使った問題 4",
-    "description": "String.includes を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "String.includes"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "string-includes-05",
-    "title": "String.includes を使った問題 5",
-    "description": "String.includes を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "String.includes"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "set-01",
-    "title": "Set を使った問題 1",
-    "description": "Set を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Set"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "set-02",
-    "title": "Set を使った問題 2",
-    "description": "Set を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Set"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "set-03",
-    "title": "Set を使った問題 3",
-    "description": "Set を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Set"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "set-04",
-    "title": "Set を使った問題 4",
-    "description": "Set を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Set"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "set-05",
-    "title": "Set を使った問題 5",
-    "description": "Set を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Set"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "map-01",
-    "title": "Map を使った問題 1",
-    "description": "Map を使って条件を満たす処理を実装してください。",
-    "difficulty": "HARD",
-    "functionKeys": [
-      "Map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "map-02",
-    "title": "Map を使った問題 2",
-    "description": "Map を使って条件を満たす処理を実装してください。",
-    "difficulty": "HARD",
-    "functionKeys": [
-      "Map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "map-03",
-    "title": "Map を使った問題 3",
-    "description": "Map を使って条件を満たす処理を実装してください。",
-    "difficulty": "HARD",
-    "functionKeys": [
-      "Map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "map-04",
-    "title": "Map を使った問題 4",
-    "description": "Map を使って条件を満たす処理を実装してください。",
-    "difficulty": "HARD",
-    "functionKeys": [
-      "Map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "map-05",
-    "title": "Map を使った問題 5",
-    "description": "Map を使って条件を満たす処理を実装してください。",
-    "difficulty": "HARD",
-    "functionKeys": [
-      "Map"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-abs-01",
-    "title": "Math.abs を使った問題 1",
-    "description": "Math.abs を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.abs"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-abs-02",
-    "title": "Math.abs を使った問題 2",
-    "description": "Math.abs を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.abs"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-abs-03",
-    "title": "Math.abs を使った問題 3",
-    "description": "Math.abs を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.abs"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-abs-04",
-    "title": "Math.abs を使った問題 4",
-    "description": "Math.abs を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.abs"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-abs-05",
-    "title": "Math.abs を使った問題 5",
-    "description": "Math.abs を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.abs"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-floor-01",
-    "title": "Math.floor を使った問題 1",
-    "description": "Math.floor を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.floor"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-floor-02",
-    "title": "Math.floor を使った問題 2",
-    "description": "Math.floor を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.floor"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-floor-03",
-    "title": "Math.floor を使った問題 3",
-    "description": "Math.floor を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.floor"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-floor-04",
-    "title": "Math.floor を使った問題 4",
-    "description": "Math.floor を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.floor"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-floor-05",
-    "title": "Math.floor を使った問題 5",
-    "description": "Math.floor を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.floor"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-ceil-01",
-    "title": "Math.ceil を使った問題 1",
-    "description": "Math.ceil を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.ceil"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-ceil-02",
-    "title": "Math.ceil を使った問題 2",
-    "description": "Math.ceil を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.ceil"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-ceil-03",
-    "title": "Math.ceil を使った問題 3",
-    "description": "Math.ceil を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.ceil"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-ceil-04",
-    "title": "Math.ceil を使った問題 4",
-    "description": "Math.ceil を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.ceil"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-ceil-05",
-    "title": "Math.ceil を使った問題 5",
-    "description": "Math.ceil を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.ceil"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-round-01",
-    "title": "Math.round を使った問題 1",
-    "description": "Math.round を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.round"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-round-02",
-    "title": "Math.round を使った問題 2",
-    "description": "Math.round を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.round"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-round-03",
-    "title": "Math.round を使った問題 3",
-    "description": "Math.round を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.round"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-round-04",
-    "title": "Math.round を使った問題 4",
-    "description": "Math.round を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.round"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "math-round-05",
-    "title": "Math.round を使った問題 5",
-    "description": "Math.round を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Math.round"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-slice-01",
-    "title": "Array.slice を使った問題 1",
-    "description": "Array.slice を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.slice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-slice-02",
-    "title": "Array.slice を使った問題 2",
-    "description": "Array.slice を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.slice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-slice-03",
-    "title": "Array.slice を使った問題 3",
-    "description": "Array.slice を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.slice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-slice-04",
-    "title": "Array.slice を使った問題 4",
-    "description": "Array.slice を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.slice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-slice-05",
-    "title": "Array.slice を使った問題 5",
-    "description": "Array.slice を使って条件を満たす処理を実装してください。",
-    "difficulty": "EASY",
-    "functionKeys": [
-      "Array.slice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-splice-01",
-    "title": "Array.splice を使った問題 1",
-    "description": "Array.splice を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.splice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-splice-02",
-    "title": "Array.splice を使った問題 2",
-    "description": "Array.splice を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.splice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-splice-03",
-    "title": "Array.splice を使った問題 3",
-    "description": "Array.splice を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.splice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-splice-04",
-    "title": "Array.splice を使った問題 4",
-    "description": "Array.splice を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.splice"
-    ],
-    "hasTutorial": true
-  },
-  {
-    "id": "array-splice-05",
-    "title": "Array.splice を使った問題 5",
-    "description": "Array.splice を使って条件を満たす処理を実装してください。",
-    "difficulty": "MEDIUM",
-    "functionKeys": [
-      "Array.splice"
-    ],
-    "hasTutorial": true
-  }
+    {
+        "id": "p001",
+        "title": "Math.max を使った問題 1",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p002",
+        "title": "Math.max を使った問題 2",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p003",
+        "title": "Math.max を使った問題 3",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p004",
+        "title": "Math.max を使った問題 4",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p005",
+        "title": "Math.max を使った問題 5",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p006",
+        "title": "Math.min を使った問題 1",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p007",
+        "title": "Math.min を使った問題 2",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p008",
+        "title": "Math.min を使った問題 3",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p009",
+        "title": "Math.min を使った問題 4",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p010",
+        "title": "Math.min を使った問題 5",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p011",
+        "title": "Array.map を使った問題 1",
+        "description": "Array.map を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p012",
+        "title": "Array.map を使った問題 2",
+        "description": "Array.map を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p013",
+        "title": "Array.map を使った問題 3",
+        "description": "Array.map を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p014",
+        "title": "Array.map を使った問題 4",
+        "description": "Array.map を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p015",
+        "title": "Array.map を使った問題 5",
+        "description": "Array.map を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p016",
+        "title": "Array.filter を使った問題 1",
+        "description": "Array.filter を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.filter"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p017",
+        "title": "Array.filter を使った問題 2",
+        "description": "Array.filter を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.filter"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p018",
+        "title": "Array.filter を使った問題 3",
+        "description": "Array.filter を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.filter"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p019",
+        "title": "Array.filter を使った問題 4",
+        "description": "Array.filter を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.filter"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p020",
+        "title": "Array.filter を使った問題 5",
+        "description": "Array.filter を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.filter"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p021",
+        "title": "Array.reduce を使った問題 1",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p022",
+        "title": "Array.reduce を使った問題 2",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p023",
+        "title": "Array.reduce を使った問題 3",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p024",
+        "title": "Array.reduce を使った問題 4",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p025",
+        "title": "Array.reduce を使った問題 5",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p026",
+        "title": "Array.sort を使った問題 1",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p027",
+        "title": "Array.sort を使った問題 2",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p028",
+        "title": "Array.sort を使った問題 3",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p029",
+        "title": "Array.sort を使った問題 4",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p030",
+        "title": "Array.sort を使った問題 5",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p031",
+        "title": "Array.find を使った問題 1",
+        "description": "Array.find を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.find"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p032",
+        "title": "Array.find を使った問題 2",
+        "description": "Array.find を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.find"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p033",
+        "title": "Array.find を使った問題 3",
+        "description": "Array.find を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.find"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p034",
+        "title": "Array.find を使った問題 4",
+        "description": "Array.find を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.find"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p035",
+        "title": "Array.find を使った問題 5",
+        "description": "Array.find を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.find"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p036",
+        "title": "Array.some を使った問題 1",
+        "description": "Array.some を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.some"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p037",
+        "title": "Array.some を使った問題 2",
+        "description": "Array.some を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.some"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p038",
+        "title": "Array.some を使った問題 3",
+        "description": "Array.some を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.some"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p039",
+        "title": "Array.some を使った問題 4",
+        "description": "Array.some を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.some"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p040",
+        "title": "Array.some を使った問題 5",
+        "description": "Array.some を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.some"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p041",
+        "title": "Array.every を使った問題 1",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p042",
+        "title": "Array.every を使った問題 2",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p043",
+        "title": "Array.every を使った問題 3",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p044",
+        "title": "Array.every を使った問題 4",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p045",
+        "title": "Array.every を使った問題 5",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p046",
+        "title": "String.split を使った問題 1",
+        "description": "String.split を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p047",
+        "title": "String.split を使った問題 2",
+        "description": "String.split を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p048",
+        "title": "String.split を使った問題 3",
+        "description": "String.split を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p049",
+        "title": "String.split を使った問題 4",
+        "description": "String.split を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p050",
+        "title": "String.split を使った問題 5",
+        "description": "String.split を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p051",
+        "title": "String.join を使った問題 1",
+        "description": "String.join を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.join"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p052",
+        "title": "String.join を使った問題 2",
+        "description": "String.join を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.join"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p053",
+        "title": "String.join を使った問題 3",
+        "description": "String.join を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.join"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p054",
+        "title": "String.join を使った問題 4",
+        "description": "String.join を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.join"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p055",
+        "title": "String.join を使った問題 5",
+        "description": "String.join を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.join"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p056",
+        "title": "String.includes を使った問題 1",
+        "description": "String.includes を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["String.includes"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p057",
+        "title": "String.includes を使った問題 2",
+        "description": "String.includes を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["String.includes"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p058",
+        "title": "String.includes を使った問題 3",
+        "description": "String.includes を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["String.includes"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p059",
+        "title": "String.includes を使った問題 4",
+        "description": "String.includes を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["String.includes"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p060",
+        "title": "String.includes を使った問題 5",
+        "description": "String.includes を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["String.includes"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p061",
+        "title": "Set を使った問題 1",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p062",
+        "title": "Set を使った問題 2",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p063",
+        "title": "Set を使った問題 3",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p064",
+        "title": "Set を使った問題 4",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p065",
+        "title": "Set を使った問題 5",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p066",
+        "title": "Map を使った問題 1",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "HARD",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p067",
+        "title": "Map を使った問題 2",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "HARD",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p068",
+        "title": "Map を使った問題 3",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "HARD",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p069",
+        "title": "Map を使った問題 4",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "HARD",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p070",
+        "title": "Map を使った問題 5",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "HARD",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p071",
+        "title": "Math.abs を使った問題 1",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p072",
+        "title": "Math.abs を使った問題 2",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p073",
+        "title": "Math.abs を使った問題 3",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p074",
+        "title": "Math.abs を使った問題 4",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p075",
+        "title": "Math.abs を使った問題 5",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p076",
+        "title": "Math.floor を使った問題 1",
+        "description": "Math.floor を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p077",
+        "title": "Math.floor を使った問題 2",
+        "description": "Math.floor を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p078",
+        "title": "Math.floor を使った問題 3",
+        "description": "Math.floor を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p079",
+        "title": "Math.floor を使った問題 4",
+        "description": "Math.floor を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p080",
+        "title": "Math.floor を使った問題 5",
+        "description": "Math.floor を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p081",
+        "title": "Math.ceil を使った問題 1",
+        "description": "Math.ceil を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.ceil"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p082",
+        "title": "Math.ceil を使った問題 2",
+        "description": "Math.ceil を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.ceil"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p083",
+        "title": "Math.ceil を使った問題 3",
+        "description": "Math.ceil を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.ceil"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p084",
+        "title": "Math.ceil を使った問題 4",
+        "description": "Math.ceil を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.ceil"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p085",
+        "title": "Math.ceil を使った問題 5",
+        "description": "Math.ceil を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.ceil"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p086",
+        "title": "Math.round を使った問題 1",
+        "description": "Math.round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p087",
+        "title": "Math.round を使った問題 2",
+        "description": "Math.round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p088",
+        "title": "Math.round を使った問題 3",
+        "description": "Math.round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p089",
+        "title": "Math.round を使った問題 4",
+        "description": "Math.round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p090",
+        "title": "Math.round を使った問題 5",
+        "description": "Math.round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p091",
+        "title": "Array.slice を使った問題 1",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p092",
+        "title": "Array.slice を使った問題 2",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p093",
+        "title": "Array.slice を使った問題 3",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p094",
+        "title": "Array.slice を使った問題 4",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p095",
+        "title": "Array.slice を使った問題 5",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p096",
+        "title": "Array.splice を使った問題 1",
+        "description": "Array.splice を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.splice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p097",
+        "title": "Array.splice を使った問題 2",
+        "description": "Array.splice を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.splice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p098",
+        "title": "Array.splice を使った問題 3",
+        "description": "Array.splice を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.splice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p099",
+        "title": "Array.splice を使った問題 4",
+        "description": "Array.splice を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.splice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p100",
+        "title": "Array.splice を使った問題 5",
+        "description": "Array.splice を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.splice"],
+        "hasTutorial": true
+    }
 ]

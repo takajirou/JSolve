@@ -1,0 +1,28 @@
+{
+  "staticKey": "p020",
+  "title": "絶対値の合計",
+  "description": "N 個の整数が与えられます。各整数の絶対値の合計を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Math.abs"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Math.abs は数値の絶対値を返します。負の数を正の数に変換します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const sum = numbers.reduce((acc, n) => acc + Math.abs(n), 0);\nconsole.log(sum);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n-1 2 -3 4 -5",
+      "output": "15"
+    },
+    {
+      "input": "4\n10 -20 30 -40",
+      "output": "100"
+    }
+  ]
+}

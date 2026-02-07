@@ -1,0 +1,28 @@
+{
+  "staticKey": "p006",
+  "title": "数値の降順ソート",
+  "description": "N 個の整数が与えられます。降順にソートして出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.sort"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.sort は比較関数を指定しないと文字列としてソートされます。数値のソートには比較関数が必須です。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "numbers.sort((a, b) => b - a); // 降順\n// または\nnumbers.sort((a, b) => a - b); // 昇順"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n3 1 4 1 5",
+      "output": "5 4 3 1 1"
+    },
+    {
+      "input": "4\n100 50 200 75",
+      "output": "200 100 75 50"
+    }
+  ]
+}

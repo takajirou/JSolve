@@ -1,9 +1,0 @@
-{
-  "staticKey": "p066",
-  "title": "Array.sort 基本問題",
-  "description": "N 個の整数が与えられます。昇順に並び替えて出力してください。",
-  "difficulty": "EASY",
-  "functionKeys": [
-    "Array.sort"
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "staticKey": "p011",
-  "title": "Math.min 基本問題",
-  "description": "N 個の整数が与えられます。その中の最小値を出力してください。",
-  "difficulty": "EASY",
-  "functionKeys": [
-    "Math.min"
-  ]
-}

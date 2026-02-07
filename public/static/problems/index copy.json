@@ -1,0 +1,162 @@
+[
+    {
+        "id": "p001",
+        "title": "Math.max を使った問題 1",
+        "description": "Math.max を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.max"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p002",
+        "title": "Array.reduce を使った問題 1",
+        "description": "Array.reduce を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p003",
+        "title": "BigInt を使った問題 1",
+        "description": "BigInt を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["BigInt"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p004",
+        "title": "Set を使った問題 1",
+        "description": "Set を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Set"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p005",
+        "title": "Map を使った問題 1",
+        "description": "Map を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p006",
+        "title": "Array.sort を使った問題 1",
+        "description": "Array.sort を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.sort"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p007",
+        "title": "Array.fill を使った問題 1",
+        "description": "Array.fill を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.fill"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p008",
+        "title": "Array.from を使った問題 1",
+        "description": "Array.from を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.from"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p009",
+        "title": "String.padStart を使った問題 1",
+        "description": "String.padStart を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.padStart"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p010",
+        "title": "Array.every を使った問題 1",
+        "description": "Array.every を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.every"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p011",
+        "title": "Array.findIndex を使った問題 1",
+        "description": "Array.findIndex を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.findIndex"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p012",
+        "title": "Array.slice を使った問題 1",
+        "description": "Array.slice を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.slice"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p013",
+        "title": "Math.floor/ceil/round を使った問題 1",
+        "description": "Math.floor/ceil/round を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.floor", "Math.ceil", "Math.round"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p014",
+        "title": "分割代入と残余演算子を使った問題 1",
+        "description": "分割代入と残余演算子を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["分割代入", "残余演算子"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p015",
+        "title": "String.repeat を使った問題 1",
+        "description": "String.repeat を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.repeat"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p016",
+        "title": "Array.flatMap を使った問題 1",
+        "description": "Array.flatMap を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Array.flatMap"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p017",
+        "title": "Object.entries を使った問題 1",
+        "description": "Object.entries を使って条件を満たす処理を実装してください。",
+        "difficulty": "MEDIUM",
+        "functionKeys": ["Object.entries", "Object.fromEntries"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p018",
+        "title": "Math.min を使った問題 1",
+        "description": "Math.min を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.min"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p019",
+        "title": "Array.reverse を使った問題 1",
+        "description": "Array.reverse を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reverse"],
+        "hasTutorial": true
+    },
+    {
+        "id": "p020",
+        "title": "Math.abs を使った問題 1",
+        "description": "Math.abs を使って条件を満たす処理を実装してください。",
+        "difficulty": "EASY",
+        "functionKeys": ["Math.abs"],
+        "hasTutorial": true
+    }
+]

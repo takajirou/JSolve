@@ -1,0 +1,28 @@
+{
+  "staticKey": "p008",
+  "title": "連番の生成",
+  "description": "整数 N が与えられます。1 から N までの連番をスペース区切りで出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.from"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.from は配列風オブジェクトや反復可能オブジェクトから配列を生成します。マッピング関数も指定できます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const arr = Array.from({ length: n }, (_, i) => i + 1);\nconsole.log(arr.join(' '));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5",
+      "output": "1 2 3 4 5"
+    },
+    {
+      "input": "10",
+      "output": "1 2 3 4 5 6 7 8 9 10"
+    }
+  ]
+}

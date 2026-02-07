@@ -1,9 +1,0 @@
-{
-  "staticKey": "p099",
-  "title": "String.includes 基本問題",
-  "description": "文字列 S と T が与えられます。S に T が含まれるなら YES、そうでなければ NO を出力してください。",
-  "difficulty": "EASY",
-  "functionKeys": [
-    "String.includes"
-  ]
-}

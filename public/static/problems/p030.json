@@ -1,9 +1,0 @@
-{
-  "staticKey": "p030",
-  "title": "Math.abs 基本問題",
-  "description": "整数 X が与えられます。X の絶対値を出力してください。",
-  "difficulty": "EASY",
-  "functionKeys": [
-    "Math.abs"
-  ]
-}

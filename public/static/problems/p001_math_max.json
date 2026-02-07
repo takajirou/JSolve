@@ -1,0 +1,28 @@
+{
+  "staticKey": "p001",
+  "title": "Math.max 基本問題",
+  "description": "N 個の整数が与えられます。その中の最大値を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Math.max"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Math.max は複数の数値の中から最大値を返します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const max = Math.max(...numbers);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "3\n1 5 3",
+      "output": "5"
+    },
+    {
+      "input": "5\n10 2 8 6 4",
+      "output": "10"
+    }
+  ]
+}

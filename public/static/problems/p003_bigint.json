@@ -1,0 +1,28 @@
+{
+  "staticKey": "p003",
+  "title": "大きな数の計算",
+  "description": "2つの非常に大きな整数 A, B が与えられます。A + B を出力してください。",
+  "difficulty": "MEDIUM",
+  "functionKeys": ["BigInt"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "BigInt は任意精度の整数を扱うことができます。Number 型の安全な整数範囲を超える計算に使います。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const a = BigInt(input[0]);\nconst b = BigInt(input[1]);\nconst result = a + b;\nconsole.log(result.toString());"
+    }
+  ],
+  "cases": [
+    {
+      "input": "123456789012345678901234567890\n987654321098765432109876543210",
+      "output": "1111111110111111111011111111100"
+    },
+    {
+      "input": "999999999999999999\n1",
+      "output": "1000000000000000000"
+    }
+  ]
+}
