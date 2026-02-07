@@ -1,0 +1,9 @@
+{
+  "staticKey": "p042",
+  "title": "Array.filter 基本問題",
+  "description": "N 個の整数が与えられます。偶数のみを出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": [
+    "Array.filter"
+  ]
+}

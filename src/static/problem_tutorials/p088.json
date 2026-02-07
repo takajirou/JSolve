@@ -1,0 +1,15 @@
+{
+  "staticKey": "p088",
+  "functionKey": "String.join",
+  "dialog": [
+    {
+      "type": "text",
+      "value": "join は配列を結合します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const s = arr.join('-');"
+    }
+  ]
+}

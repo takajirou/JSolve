@@ -1,0 +1,13 @@
+{
+  "staticKey": "p083",
+  "cases": [
+    {
+      "input": "3\na b c",
+      "output": "a-b-c"
+    },
+    {
+      "input": "2\nhello world",
+      "output": "hello-world"
+    }
+  ]
+}

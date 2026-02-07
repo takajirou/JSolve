@@ -1,0 +1,5 @@
+{
+  "key": "Math.min",
+  "categoryKey": "math",
+  "description": "複数の数値から最小値を返す"
+}

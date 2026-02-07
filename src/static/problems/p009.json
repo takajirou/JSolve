@@ -1,0 +1,9 @@
+{
+  "staticKey": "p009",
+  "title": "Math.max 基本問題",
+  "description": "N 個の整数が与えられます。その中の最大値を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": [
+    "Math.max"
+  ]
+}

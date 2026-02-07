@@ -1,0 +1,5 @@
+{
+  "key": "Math.max",
+  "categoryKey": "math",
+  "description": "複数の数値から最大値を返す"
+}

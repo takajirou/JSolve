@@ -1,0 +1,15 @@
+{
+  "staticKey": "p068",
+  "functionKey": "Array.sort",
+  "dialog": [
+    {
+      "type": "text",
+      "value": "sort は比較関数が必要です。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "arr.sort((a, b) => a - b);"
+    }
+  ]
+}

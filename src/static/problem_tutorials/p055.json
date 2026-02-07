@@ -1,0 +1,15 @@
+{
+  "staticKey": "p055",
+  "functionKey": "Array.reduce",
+  "dialog": [
+    {
+      "type": "text",
+      "value": "reduce は配列を 1 つの値にまとめます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const sum = arr.reduce((a, b) => a + b, 0);"
+    }
+  ]
+}

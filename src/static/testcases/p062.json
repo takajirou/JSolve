@@ -1,0 +1,13 @@
+{
+  "staticKey": "p062",
+  "cases": [
+    {
+      "input": "4\n3 1 4 2",
+      "output": "1 2 3 4"
+    },
+    {
+      "input": "3\n10 2 7",
+      "output": "2 7 10"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "staticKey": "p093",
+  "functionKey": "String.includes",
+  "dialog": [
+    {
+      "type": "text",
+      "value": "includes は部分文字列を判定します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "s.includes(t);"
+    }
+  ]
+}

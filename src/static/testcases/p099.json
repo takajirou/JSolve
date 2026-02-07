@@ -1,0 +1,13 @@
+{
+  "staticKey": "p099",
+  "cases": [
+    {
+      "input": "hello\nell",
+      "output": "YES"
+    },
+    {
+      "input": "abc\nd",
+      "output": "NO"
+    }
+  ]
+}

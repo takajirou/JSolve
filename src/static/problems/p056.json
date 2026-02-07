@@ -1,0 +1,9 @@
+{
+  "staticKey": "p056",
+  "title": "Array.reduce 基本問題",
+  "description": "N 個の整数が与えられます。合計値を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": [
+    "Array.reduce"
+  ]
+}

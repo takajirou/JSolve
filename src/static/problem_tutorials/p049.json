@@ -1,0 +1,15 @@
+{
+  "staticKey": "p049",
+  "functionKey": "Array.filter",
+  "dialog": [
+    {
+      "type": "text",
+      "value": "filter は条件に合う要素だけを残します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const evens = arr.filter(v => v % 2 === 0);"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "staticKey": "p088",
+  "title": "String.join 基本問題",
+  "description": "N 個の文字列が与えられます。'-' で結合してください。",
+  "difficulty": "EASY",
+  "functionKeys": [
+    "String.join"
+  ]
+}

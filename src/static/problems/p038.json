@@ -1,0 +1,9 @@
+{
+  "staticKey": "p038",
+  "title": "Array.map 基本問題",
+  "description": "N 個の整数が与えられます。すべての値を 2 倍して出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": [
+    "Array.map"
+  ]
+}
