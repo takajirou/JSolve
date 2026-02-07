@@ -14,14 +14,6 @@ export interface FunctionCategory {
     displayName: string;
 }
 
-export type StaticProblem = {
-    staticKey: string;
-    title: string;
-    description: string;
-    difficulty: Difficulty;
-    functionKeys: string[];
-};
-
 export type TutorialDialogItem =
     | { type: "text"; value: string }
     | { type: "code"; language: "ts"; value: string };

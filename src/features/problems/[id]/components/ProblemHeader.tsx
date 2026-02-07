@@ -2,10 +2,10 @@
 
 import { Code2, Wrench } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { StaticProblem } from "../../types/problem";
+import { Problem } from "../../types/problem";
 
 type Props = {
-    problem: StaticProblem;
+    problem: Problem;
 };
 
 export function ProblemHeader({ problem }: Props) {
