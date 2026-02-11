@@ -36,10 +36,28 @@ export default function ProblemsPage() {
                 onSelectCategory={setFunctionKey}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filtered.map((p) => (
-                    <ProblemCard key={p.id} problem={p} />
-                ))}
+            <div className="space-y-8">
+                {filtered.slice(0, 4).length > 0 && (
+                    <div>
+                        <h2 className="text-2xl font-bold mb-6">基礎</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {filtered.slice(0, 4).map((p) => (
+                                <ProblemCard key={p.id} problem={p} />
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {filtered.slice(4).length > 0 && (
+                    <div>
+                        <h2 className="text-2xl font-bold mb-6">関数</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {filtered.slice(4).map((p) => (
+                                <ProblemCard key={p.id} problem={p} />
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
