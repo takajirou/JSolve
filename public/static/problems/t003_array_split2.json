@@ -1,0 +1,28 @@
+{
+    "staticKey": "t003",
+    "title": "複数行入力を処理しよう",
+    "description": "1 行目に整数 N、2 行目に N 個の整数が空白区切りで与えられます。それらを配列として受け取り、すべて出力してください（空白区切り）。",
+    "difficulty": "EASY",
+    "functionKeys": ["String.split", "Array.map"],
+    "hints": [
+        {
+            "type": "text",
+            "value": "改行で split(\"\\n\") して行ごとに分割し、2 行目を空白で分割します。"
+        },
+        {
+            "type": "code",
+            "language": "ts",
+            "value": "import * as fs from \"fs\";\nconst lines = fs.readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst n = Number(lines[0]);\nconst numbers = lines[1].split(\" \").map(Number);\nconsole.log(numbers.join(\" \"));"
+        }
+    ],
+    "cases": [
+        {
+            "input": "3\n1 2 3",
+            "output": "1 2 3"
+        },
+        {
+            "input": "5\n10 20 30 40 50",
+            "output": "10 20 30 40 50"
+        }
+    ]
+}

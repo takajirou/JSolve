@@ -1,0 +1,28 @@
+{
+    "staticKey": "t001",
+    "title": "標準入力を読み取って出力しよう",
+    "description": "標準入力から 1 行の文字列を読み取り、そのまま出力してください。Node.js の fs モジュールを使って入力を取得する方法を学びましょう。",
+    "difficulty": "EASY",
+    "functionKeys": ["fs.readFileSync"],
+    "hints": [
+        {
+            "type": "text",
+            "value": "Node.js では fs.readFileSync(0, \"utf8\") を使うと標準入力を取得できます。"
+        },
+        {
+            "type": "code",
+            "language": "ts",
+            "value": "import * as fs from \"fs\";\nconst input = fs.readFileSync(0, \"utf8\").trim();\nconsole.log(input);"
+        }
+    ],
+    "cases": [
+        {
+            "input": "Hello",
+            "output": "Hello"
+        },
+        {
+            "input": "Competitive Programming",
+            "output": "Competitive Programming"
+        }
+    ]
+}

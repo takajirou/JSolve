@@ -1,5 +1,37 @@
 [
     {
+        "id": "t001_io_read",
+        "title": "標準入力の読み取り",
+        "description": "fs.readFileSync を使って標準入力を取得する方法を学びます。",
+        "difficulty": "EASY",
+        "functionKeys": ["fs.readFileSync"],
+        "hasTutorial": true
+    },
+    {
+        "id": "t002_io_split_number",
+        "title": "split と Number 変換",
+        "description": "split と Number を使って入力文字列を数値に変換します。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split", "Number"],
+        "hasTutorial": true
+    },
+    {
+        "id": "t003_io_multiline",
+        "title": "複数行入力の処理",
+        "description": "改行区切りの入力を配列として扱う方法を学びます。",
+        "difficulty": "EASY",
+        "functionKeys": ["String.split", "Array.map"],
+        "hasTutorial": true
+    },
+    {
+        "id": "t004_io_reduce_sum",
+        "title": "reduce による合計計算",
+        "description": "map と reduce を使って複数行の数値を合計します。",
+        "difficulty": "EASY",
+        "functionKeys": ["Array.reduce"],
+        "hasTutorial": true
+    },
+    {
         "id": "p001_math_max",
         "title": "Math.max",
         "description": "Math.max を使って条件を満たす処理を実装してください。",
@@ -8,7 +40,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p002",
+        "id": "p002_array_reduce",
         "title": "Array.reduce",
         "description": "Array.reduce を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -16,7 +48,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p003",
+        "id": "p003_bigint",
         "title": "BigInt",
         "description": "BigInt を使って条件を満たす処理を実装してください。",
         "difficulty": "MEDIUM",
@@ -24,7 +56,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p004",
+        "id": "p004_set",
         "title": "Set",
         "description": "Set を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -32,7 +64,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p005",
+        "id": "p005_map",
         "title": "Map",
         "description": "Map を使って条件を満たす処理を実装してください。",
         "difficulty": "MEDIUM",
@@ -40,7 +72,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p006",
+        "id": "p006_array_sort",
         "title": "Array.sort",
         "description": "Array.sort を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -48,7 +80,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p007",
+        "id": "p007_array_fill",
         "title": "Array.fill",
         "description": "Array.fill を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -56,7 +88,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p008",
+        "id": "p008_array_from",
         "title": "Array.from",
         "description": "Array.from を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -64,7 +96,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p009",
+        "id": "p009_string_padstart",
         "title": "String.padStart",
         "description": "String.padStart を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -72,7 +104,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p010",
+        "id": "p010_array_every",
         "title": "Array.every",
         "description": "Array.every を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -80,7 +112,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p011",
+        "id": "p011_array_findindex",
         "title": "Array.findIndex",
         "description": "Array.findIndex を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -88,7 +120,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p012",
+        "id": "p012_array_slice",
         "title": "Array.slice",
         "description": "Array.slice を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -96,7 +128,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p013",
+        "id": "p013_math_rounding",
         "title": "Math.floor/ceil/round",
         "description": "Math.floor/ceil/round を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -104,7 +136,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p014",
+        "id": "p014_destructuring",
         "title": "分割代入と残余演算子",
         "description": "分割代入と残余演算子を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -112,7 +144,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p015",
+        "id": "p015_string_repeat",
         "title": "String.repeat",
         "description": "String.repeat を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -120,7 +152,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p016",
+        "id": "p016_array_flatmap",
         "title": "Array.flatMap",
         "description": "Array.flatMap を使って条件を満たす処理を実装してください。",
         "difficulty": "MEDIUM",
@@ -128,7 +160,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p017",
+        "id": "p017_object_entries",
         "title": "Object.entries",
         "description": "Object.entries を使って条件を満たす処理を実装してください。",
         "difficulty": "MEDIUM",
@@ -136,7 +168,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p018",
+        "id": "p018_math_min",
         "title": "Math.min",
         "description": "Math.min を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -144,7 +176,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p019",
+        "id": "p019_array_reverse",
         "title": "Array.reverse",
         "description": "Array.reverse を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",
@@ -152,7 +184,7 @@
         "hasTutorial": true
     },
     {
-        "id": "p020",
+        "id": "p020_math_abs",
         "title": "Math.abs",
         "description": "Math.abs を使って条件を満たす処理を実装してください。",
         "difficulty": "EASY",

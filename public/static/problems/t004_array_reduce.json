@@ -1,0 +1,28 @@
+{
+    "staticKey": "t004",
+    "title": "改行ごとの数値を合計しよう",
+    "description": "複数行にわたって整数が 1 行に 1 つずつ与えられます。それらをすべて合計して出力してください。",
+    "difficulty": "EASY",
+    "functionKeys": ["Array.reduce"],
+    "hints": [
+        {
+            "type": "text",
+            "value": "split(\"\\n\") で配列化し、map(Number) で数値に変換してから reduce で合計します。"
+        },
+        {
+            "type": "code",
+            "language": "ts",
+            "value": "import * as fs from \"fs\";\nconst lines = fs.readFileSync(0, \"utf8\").trim().split(\"\\n\");\nconst sum = lines.map(Number).reduce((acc, v) => acc + v, 0);\nconsole.log(sum);"
+        }
+    ],
+    "cases": [
+        {
+            "input": "1\n2\n3",
+            "output": "6"
+        },
+        {
+            "input": "10\n20\n30",
+            "output": "60"
+        }
+    ]
+}
