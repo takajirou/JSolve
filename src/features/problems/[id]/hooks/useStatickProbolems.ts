@@ -26,6 +26,7 @@ export const useStaticProblem = (id: string) => {
                     difficulty: data.difficulty,
                     functionKeys: data.functionKeys,
                     hasTutorial: data.hints && data.hints.length > 0,
+                    requiredFunctions: data.requiredFunctions,
                 });
 
                 // チュートリアルデータ（hintsから変換）

@@ -4,6 +4,7 @@
     "description": "標準入力から 1 行の文字列を読み取り、そのまま出力してください。Node.js の fs モジュールを使って入力を取得する方法を学びましょう。",
     "difficulty": "EASY",
     "functionKeys": ["fs.readFileSync"],
+    "requiredFunctions": ["fs.readFileSync"],
     "hints": [
         {
             "type": "text",

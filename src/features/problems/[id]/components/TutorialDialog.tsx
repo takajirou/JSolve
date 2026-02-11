@@ -8,7 +8,6 @@ import {
     DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
 import { TutorialDialogItem } from "@/features/problems/types/problem";
 import { ChevronLeft, ChevronRight, CheckCircle2 } from "lucide-react";
 
@@ -32,8 +31,6 @@ export function TutorialDialog({
     const current = dialog[step];
     if (!current) return null;
 
-    const progress = ((step + 1) / dialog.length) * 100;
-
     return (
         <Dialog open={open} onOpenChange={(open) => !open && onFinish()}>
             <DialogContent className="max-w-3xl max-h-[80vh] flex flex-col">
@@ -44,7 +41,6 @@ export function TutorialDialog({
                             {step + 1} / {dialog.length}
                         </span>
                     </DialogTitle>
-                    <Progress value={progress} className="h-1.5" />
                 </DialogHeader>
 
                 <div className="flex-1 overflow-y-auto py-6 space-y-4">

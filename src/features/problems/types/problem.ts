@@ -7,6 +7,7 @@ export interface Problem {
     difficulty: Difficulty;
     functionKeys: string[];
     hasTutorial: boolean;
+    requiredFunctions: string[];
 }
 
 export interface FunctionCategory {
