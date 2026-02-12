@@ -1,4 +1,3 @@
-// @/features/problems/[id]/components/SubmitResultDialog.tsx
 import {
     Dialog,
     DialogContent,
@@ -7,6 +6,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, AlertCircle, XCircle } from "lucide-react";
 
@@ -108,8 +108,10 @@ export function SubmitResultDialog({
 
                 <DialogFooter className="flex-col sm:flex-row gap-2">
                     {success ? (
-                        <Button onClick={onClose} className="w-full">
-                            問題一覧に戻る
+                        <Button>
+                            <Link href="/problems" className="w-full">
+                                問題一覧に戻る
+                            </Link>
                         </Button>
                     ) : (
                         <>
