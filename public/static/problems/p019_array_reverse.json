@@ -1,0 +1,28 @@
+{
+  "staticKey": "p019",
+  "title": "配列の逆順",
+  "description": "N 個の整数が与えられます。逆順に並べてスペース区切りで出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.reverse"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.reverse は配列を逆順にします。注意: 元の配列を変更するので、必要に応じてコピーしてください。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const reversed = [...numbers].reverse();\nconsole.log(reversed.join(' '));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n1 2 3 4 5",
+      "output": "5 4 3 2 1"
+    },
+    {
+      "input": "3\n10 20 30",
+      "output": "30 20 10"
+    }
+  ]
+}

@@ -1,39 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-type Difficulty = "EASY" | "MEDIUM" | "HARD";
-type WebUsage = "LOW" | "NONE" | "DANGEROUS";
-
-export type Problem = {
-    id: string;
-    functionName: string;
-    description: string;
-    category: string;
-    section?: string;
-    difficulty: Difficulty;
-    webUsage: WebUsage;
-    attemptCount?: number;
-};
-
-export type Category = {
-    id: string;
-    name: string;
-    displayName: string;
-};
+import { Problem, FunctionCategory, Difficulty } from "../types/problem";
 
 type Stats = {
-    total: number;
     easy: number;
     medium: number;
     hard: number;
 };
 
-export function useProblems() {
+export const useProblems = () => {
     const [problems, setProblems] = useState<Problem[]>([]);
-    const [categories, setCategories] = useState<Category[]>([]);
+    const [categories, setCategories] = useState<FunctionCategory[]>([]);
     const [stats, setStats] = useState<Stats>({
-        total: 0,
         easy: 0,
         medium: 0,
         hard: 0,
@@ -41,29 +20,42 @@ export function useProblems() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchProblems = async () => {
             try {
-                setLoading(true);
-                const [p, c, s] = await Promise.all([
-                    fetch("/api/problems"),
-                    fetch("/api/categories"),
-                    fetch("/api/stats"),
-                ]);
+                const res = await fetch("/static/problems/index.json");
+                const data: Problem[] = await res.json();
 
-                const problemsData = await p.json();
-                const categoriesData = await c.json();
-                const statsData = await s.json();
+                setProblems(data);
 
-                setProblems(problemsData.problems ?? []);
-                setCategories(categoriesData.categories ?? []);
-                setStats(statsData ?? stats);
+                // stats 集計
+                const s: Stats = { easy: 0, medium: 0, hard: 0 };
+                data.forEach((p) => {
+                    const key =
+                        p.difficulty.toLowerCase() as Lowercase<Difficulty>;
+                    s[key]++;
+                });
+                setStats(s);
+
+                // functionKeys からカテゴリ生成
+                const map = new Map<string, FunctionCategory>();
+                data.forEach((p) => {
+                    p.functionKeys.forEach((key) => {
+                        if (!map.has(key)) {
+                            map.set(key, {
+                                key,
+                                displayName: key,
+                            });
+                        }
+                    });
+                });
+                setCategories([...map.values()]);
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchData();
+        fetchProblems();
     }, []);
 
     return { problems, categories, stats, loading };
-}
+};

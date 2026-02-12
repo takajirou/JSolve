@@ -1,0 +1,28 @@
+{
+  "staticKey": "p016",
+  "title": "数値の展開",
+  "description": "N 個の整数が与えられます。各整数 x に対して、1 から x までの数を全て並べた配列を作成し、スペース区切りで出力してください。",
+  "difficulty": "MEDIUM",
+  "functionKeys": ["Array.flatMap"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.flatMap は各要素を配列にマッピングしてから平坦化します。map + flat の組み合わせを1ステップで実行できます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const result = numbers.flatMap(x => \n  Array.from({ length: x }, (_, i) => i + 1)\n);\nconsole.log(result.join(' '));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "3\n2 1 3",
+      "output": "1 2 1 1 2 3"
+    },
+    {
+      "input": "2\n3 2",
+      "output": "1 2 3 1 2"
+    }
+  ]
+}

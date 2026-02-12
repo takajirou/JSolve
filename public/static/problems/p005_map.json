@@ -1,0 +1,28 @@
+{
+  "staticKey": "p005",
+  "title": "出現回数のカウント",
+  "description": "N 個の整数が与えられます。最も多く出現する整数を出力してください。(複数ある場合は最小値)",
+  "difficulty": "MEDIUM",
+  "functionKeys": ["Map"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Map はキーと値のペアを保持します。出現回数のカウントに最適です。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const count = new Map();\nfor (const num of numbers) {\n  count.set(num, (count.get(num) || 0) + 1);\n}"
+    }
+  ],
+  "cases": [
+    {
+      "input": "7\n1 2 3 2 2 3 1",
+      "output": "2"
+    },
+    {
+      "input": "5\n5 4 3 2 1",
+      "output": "1"
+    }
+  ]
+}

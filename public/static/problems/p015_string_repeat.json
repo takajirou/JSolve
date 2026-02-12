@@ -1,0 +1,28 @@
+{
+  "staticKey": "p015",
+  "title": "文字列の繰り返し",
+  "description": "文字列 S と整数 N が与えられます。S を N 回繰り返した文字列を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["String.repeat"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "String.repeat は文字列を指定回数繰り返します。ループを書かずに簡潔に実装できます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const result = S.repeat(N);\nconsole.log(result);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "abc 3",
+      "output": "abcabcabc"
+    },
+    {
+      "input": "* 5",
+      "output": "*****"
+    }
+  ]
+}

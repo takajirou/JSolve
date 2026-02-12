@@ -1,0 +1,28 @@
+{
+  "staticKey": "p010",
+  "title": "全てが偶数か判定",
+  "description": "N 個の整数が与えられます。全ての整数が偶数なら 'YES'、そうでなければ 'NO' を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.every"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.every は全ての要素が条件を満たすかチェックします。Array.some は少なくとも1つの要素が条件を満たすかチェックします。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const allEven = numbers.every(n => n % 2 === 0);\nconsole.log(allEven ? 'YES' : 'NO');"
+    }
+  ],
+  "cases": [
+    {
+      "input": "3\n2 4 6",
+      "output": "YES"
+    },
+    {
+      "input": "4\n2 4 5 6",
+      "output": "NO"
+    }
+  ]
+}

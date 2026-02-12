@@ -1,32 +1,36 @@
-export type TutorialStep = {
-    title: string;
-    description: string;
-    code?: string;
-};
+export type Difficulty = "EASY" | "MEDIUM" | "HARD";
 
-export type Problem = {
+export interface Problem {
     id: string;
     title: string;
     description: string;
-    difficulty: string;
-    category: {
-        id: string;
-        name: string;
-    };
-    explanation: string;
-    sampleInput: string;
-    sampleOutput: string;
-    constraints?: string;
-    timeLimit: number;
-    memoryLimit: number;
-    testCases: Array<{
-        id: string;
-        input: string;
-        output: string;
-    }>;
-    tags: Array<{
-        id: string;
-        name: string;
-        createdAt: string;
-    }>;
+    difficulty: Difficulty;
+    functionKeys: string[];
+    hasTutorial: boolean;
+    requiredFunctions: string[];
+}
+
+export interface FunctionCategory {
+    key: string;
+    displayName: string;
+}
+
+export type TutorialDialogItem =
+    | { type: "text"; value: string }
+    | { type: "code"; language: "ts"; value: string };
+
+export type StaticTutorial = {
+    staticKey: string;
+    functionKey: string;
+    dialog: TutorialDialogItem[];
+};
+
+export type TestCase = {
+    input: string;
+    output: string;
+};
+
+export type StaticTestCases = {
+    staticKey: string;
+    cases: TestCase[];
 };

@@ -1,0 +1,29 @@
+{
+    "staticKey": "t002",
+    "title": "数値に変換して足し算しよう",
+    "description": "標準入力から 2 つの整数が 1 行に空白区切りで与えられます。それらを数値に変換し、合計を出力してください。",
+    "difficulty": "EASY",
+    "functionKeys": ["String.split", "Number"],
+    "requiredFunctions": ["split"],
+    "hints": [
+        {
+            "type": "text",
+            "value": "入力文字列を split(\" \") で分割し、それぞれを Number() で数値に変換します。"
+        },
+        {
+            "type": "code",
+            "language": "ts",
+            "value": "import * as fs from \"fs\";\nconst input = fs.readFileSync(0, \"utf8\").trim();\nconst [a, b] = input.split(\" \").map(Number);\nconsole.log(a + b);"
+        }
+    ],
+    "cases": [
+        {
+            "input": "3 5",
+            "output": "8"
+        },
+        {
+            "input": "10 20",
+            "output": "30"
+        }
+    ]
+}

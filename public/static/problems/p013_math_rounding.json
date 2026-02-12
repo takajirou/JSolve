@@ -1,0 +1,28 @@
+{
+  "staticKey": "p013",
+  "title": "小数の丸め",
+  "description": "2つの整数 A, B が与えられます。A ÷ B の結果を、切り捨て、切り上げ、四捨五入の順に改行区切りで出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Math.floor", "Math.ceil", "Math.round"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Math.floor(切り捨て), Math.ceil(切り上げ), Math.round(四捨五入) を使い分けます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const result = A / B;\nconsole.log(Math.floor(result));\nconsole.log(Math.ceil(result));\nconsole.log(Math.round(result));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "7 2",
+      "output": "3\n4\n4"
+    },
+    {
+      "input": "10 3",
+      "output": "3\n4\n3"
+    }
+  ]
+}
