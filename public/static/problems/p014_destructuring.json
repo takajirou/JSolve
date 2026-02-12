@@ -1,0 +1,28 @@
+{
+  "staticKey": "p014",
+  "title": "最初と残り",
+  "description": "N 個の整数が与えられます。最初の要素と残りの要素の合計を改行区切りで出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["分割代入", "残余演算子"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "配列の分割代入と残余演算子(...)を使うと、最初の要素と残りを簡潔に取得できます。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const [first, ...rest] = numbers;\nconsole.log(first);\nconsole.log(rest.reduce((a, b) => a + b, 0));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "4\n10 20 30 40",
+      "output": "10\n90"
+    },
+    {
+      "input": "3\n5 3 2",
+      "output": "5\n5"
+    }
+  ]
+}

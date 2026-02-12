@@ -1,0 +1,28 @@
+{
+  "staticKey": "p002",
+  "title": "配列の合計値",
+  "description": "N 個の整数が与えられます。その合計値を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.reduce"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.reduce は配列の要素を累積的に処理して単一の値を返します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const sum = numbers.reduce((acc, num) => acc + num, 0);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "3\n1 2 3",
+      "output": "6"
+    },
+    {
+      "input": "5\n10 20 30 40 50",
+      "output": "150"
+    }
+  ]
+}

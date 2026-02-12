@@ -1,0 +1,28 @@
+{
+  "staticKey": "p017",
+  "title": "文字列のカウント辞書",
+  "description": "文字列 S が与えられます。各文字の出現回数を「文字:回数」の形式で、文字の昇順で改行区切りで出力してください。",
+  "difficulty": "MEDIUM",
+  "functionKeys": ["Object.entries", "Object.fromEntries"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Object.entries はオブジェクトを [key, value] の配列に変換します。Object.fromEntries はその逆を行います。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const count = {};\nfor (const c of S) count[c] = (count[c] || 0) + 1;\nObject.entries(count)\n  .sort()\n  .forEach(([c, n]) => console.log(`${c}:${n}`));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "hello",
+      "output": "e:1\nh:1\nl:2\no:1"
+    },
+    {
+      "input": "aabbcc",
+      "output": "a:2\nb:2\nc:2"
+    }
+  ]
+}

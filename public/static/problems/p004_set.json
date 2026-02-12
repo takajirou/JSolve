@@ -1,0 +1,28 @@
+{
+  "staticKey": "p004",
+  "title": "重複を除いた個数",
+  "description": "N 個の整数が与えられます。重複を除いた整数の個数を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Set"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Set は重複のない値のコレクションです。配列から重複を除くのに便利です。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const uniqueNumbers = new Set(numbers);\nconsole.log(uniqueNumbers.size);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n1 2 3 2 1",
+      "output": "3"
+    },
+    {
+      "input": "6\n5 5 5 5 5 5",
+      "output": "1"
+    }
+  ]
+}

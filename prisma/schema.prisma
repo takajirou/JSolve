@@ -9,286 +9,104 @@ datasource db {
   url      = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
-//////////////////////////////////////////////////////////
-// ENUM
-//////////////////////////////////////////////////////////
 
-enum DifficultyLevel {
-  BEGINNER
+enum Difficulty {
   EASY
   MEDIUM
   HARD
-  EXPERT
 }
 
-enum KnowledgeLevel {
-  UNKNOWN
-  LEARNING
-  UNCERTAIN
-  MASTERED
+enum MasteryLevel {
+  UNKNOWN      // 未チェック
+  LOW          // 理解が曖昧
+  HIGH         // 習得済み
 }
 
-enum AttemptResult {
-  ACCEPTED
-  WRONG_ANSWER
-  TIME_LIMIT_EXCEEDED
-  RUNTIME_ERROR
-  COMPILE_ERROR
+enum ProblemSource {
+  SYSTEM   // アプリ既存
+  USER     // ユーザー作成
 }
-
-enum WebUsageLevel {
-  NONE
-  LOW
-  DANGEROUS
-}
-
-//////////////////////////////////////////////////////////
-// USER
-//////////////////////////////////////////////////////////
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  name      String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 
-  knowledgeStatus    KnowledgeStatus[]
-  problemAttempts    ProblemAttempt[]
-  createdProblems    Problem[]
-  achievementRecords AchievementRecord[]
-
-  @@index([email])
+  progress      UserProblemProgress[]
+  functionStats UserFunctionMastery[]
+  createdProblems Problem[] @relation("UserCreatedProblems")
 }
 
-//////////////////////////////////////////////////////////
-// CATEGORY（入出力 / ビット演算 / DP など）
-//////////////////////////////////////////////////////////
-
-model Category {
+model Function {
   id          String   @id @default(cuid())
-  name        String   @unique        // "入出力"
-  displayName String
-  description String   @db.Text
-  order       Int      @default(0)
-
+  key         String   @unique // Math.max, Array.map など
+  categoryKey String
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
 
-  problems        Problem[]
-  knowledgeStatus KnowledgeStatus[]
-  tags            Tag[]
-
-  @@index([order])
+  problems    ProblemFunction[]
+  mastery     UserFunctionMastery[]
 }
 
-//////////////////////////////////////////////////////////
-// TAG（fs, Map, Set, BFS など）
-//////////////////////////////////////////////////////////
+model UserFunctionMastery {
+  id          String        @id @default(cuid())
+  userId      String
+  functionId  String
+  mastery     MasteryLevel
+  updatedAt   DateTime      @updatedAt
 
-model Tag {
-  id        String   @id @default(cuid())
-  name      String   @unique
-  createdAt DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+  function    Function @relation(fields: [functionId], references: [id])
 
-  problems   Problem[]
-  categories Category[]
-
-  @@index([name])
+  @@unique([userId, functionId])
 }
-
-//////////////////////////////////////////////////////////
-// PROBLEM（★メイン）
-//////////////////////////////////////////////////////////
 
 model Problem {
-  id           String           @id @default(cuid())
+  id            String        @id @default(cuid())
+  title         String
+  description   String
+  difficulty    Difficulty
+  source        ProblemSource
+  creatorId     String?
+  staticKey     String?       // system問題の場合にJSONと紐づけ
+  createdAt     DateTime      @default(now())
 
-  // ===== 一覧表示用 =====
-  title        String
-  functionName String           // fs.readFileSync()
-  description  String           @db.Text
-  difficulty   DifficultyLevel
-  webUsage     WebUsageLevel
-  section      String?          // ビット全探索 / 二分探索
-  order        Int              @default(0)
-
-  // ===== 分類 =====
-  categoryId   String
-
-  // ===== 問題詳細 =====
-  explanation  String           @db.Text
-  sampleInput  String           @db.Text
-  sampleOutput String           @db.Text
-  constraints  String?          @db.Text
-  timeLimit    Int              @default(2000)
-  memoryLimit  Int              @default(256)
-
-  // ===== 管理 =====
-  createdBy    String?
-  isOfficial   Boolean          @default(true)
-  createdAt    DateTime         @default(now())
-  updatedAt    DateTime         @updatedAt
-
-  // ===== Relations =====
-  category        Category          @relation(fields: [categoryId], references: [id])
-  creator         User?             @relation(fields: [createdBy], references: [id])
-  testCases       TestCase[]
-  attempts        ProblemAttempt[]
-  tags            Tag[]
-  relatedProblems ProblemRelation[] @relation("SourceProblem")
-  relatedTo       ProblemRelation[] @relation("TargetProblem")
-  tutorial        FunctionTutorial?
-
-  @@index([categoryId])
-  @@index([difficulty])
-  @@index([webUsage])
-  @@index([section])
-  @@index([order])
-  @@index([isOfficial])
+  creator       User? @relation("UserCreatedProblems", fields: [creatorId], references: [id])
+  functions     ProblemFunction[]
+  testCases     TestCase[]
+  progress      UserProblemProgress[]
 }
 
-//////////////////////////////////////////////////////////
-// TEST CASE
-//////////////////////////////////////////////////////////
+model ProblemFunction {
+  problemId   String
+  functionId  String
+
+  problem     Problem  @relation(fields: [problemId], references: [id])
+  function    Function @relation(fields: [functionId], references: [id])
+
+  @@id([problemId, functionId])
+}
 
 model TestCase {
-  id        String   @id @default(cuid())
-  problemId String
-  input     String   @db.Text
-  output    String   @db.Text
-  isHidden  Boolean  @default(false)
-  order     Int      @default(0)
+  id         String   @id @default(cuid())
+  problemId  String
+  input      String
+  output     String
   createdAt DateTime @default(now())
 
-  problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
-
-  @@index([problemId])
-  @@index([order])
+  problem    Problem @relation(fields: [problemId], references: [id])
 }
 
-//////////////////////////////////////////////////////////
-// PROBLEM RELATION（おすすめ / 次の問題）
-//////////////////////////////////////////////////////////
-
-model ProblemRelation {
-  id           String   @id @default(cuid())
-  sourceProbId String
-  targetProbId String
-  relationType String
-  weight       Float    @default(1.0)
-  createdAt    DateTime @default(now())
-
-  sourceProblem Problem @relation("SourceProblem", fields: [sourceProbId], references: [id], onDelete: Cascade)
-  targetProblem Problem @relation("TargetProblem", fields: [targetProbId], references: [id], onDelete: Cascade)
-
-  @@unique([sourceProbId, targetProbId])
-  @@index([sourceProbId])
-  @@index([targetProbId])
-}
-
-
-//////////////////////////////////////////////////////////
-// KNOWLEDGE STATUS（カテゴリ理解度）
-//////////////////////////////////////////////////////////
-
-model KnowledgeStatus {
-  id         String         @id @default(cuid())
+model UserProblemProgress {
+  id         String     @id @default(cuid())
   userId     String
-  categoryId String
-  status     KnowledgeLevel
-  createdAt  DateTime       @default(now())
-  updatedAt  DateTime       @updatedAt
+  problemId  String
+  solved     Boolean
+  lastTriedAt DateTime @updatedAt
 
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  user       User    @relation(fields: [userId], references: [id])
+  problem    Problem @relation(fields: [problemId], references: [id])
 
-  @@unique([userId, categoryId])
-  @@index([userId])
-  @@index([categoryId])
-  @@index([status])
-}
-
-//////////////////////////////////////////////////////////
-// PROBLEM ATTEMPT（実行・提出履歴）
-//////////////////////////////////////////////////////////
-
-model ProblemAttempt {
-  id             String        @id @default(cuid())
-  userId         String
-  problemId      String
-  code           String        @db.Text
-  result         AttemptResult
-  executionTime  Int?
-  errorMessage   String?       @db.Text
-  failedTestCase Int?
-  createdAt      DateTime      @default(now())
-
-  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
-
-  @@index([userId])
-  @@index([problemId])
-  @@index([result])
-  @@index([createdAt])
-}
-
-//////////////////////////////////////////////////////////
-// ACHIEVEMENT（ダッシュボード用）
-//////////////////////////////////////////////////////////
-
-model AchievementRecord {
-  id                  String   @id @default(cuid())
-  userId              String
-  date                DateTime @default(now())
-
-  masteredCount       Int      @default(0)
-  uncertainCount      Int      @default(0)
-  solvedProblemsCount Int      @default(0)
-  streakDays          Int      @default(0)
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([userId, date])
-  @@index([userId])
-  @@index([date])
-}
-
-//////////////////////////////////////////////////////////
-// FUNCTIONTUTORIAL（チュートリアル用）
-//////////////////////////////////////////////////////////
-
-model FunctionTutorial {
-  id          String   @id @default(cuid())
-  problemId   String   @unique
-
-  title       String   // "fs.readFileSync チュートリアル"
-  description String?  @db.Text
-
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  problem Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
-  steps   TutorialStep[]
-}
-//////////////////////////////////////////////////////////
-// TUTORIALSTEP (チュートリアル子)
-//////////////////////////////////////////////////////////
-
-
-model TutorialStep {
-  id           String   @id @default(cuid())
-  tutorialId   String
-  order        Int
-
-  title        String
-  description  String   @db.Text
-  code         String?  @db.Text
-
-  createdAt    DateTime @default(now())
-
-  tutorial FunctionTutorial @relation(fields: [tutorialId], references: [id], onDelete: Cascade)
-
-  @@index([tutorialId])
-  @@index([order])
+  @@unique([userId, problemId])
 }

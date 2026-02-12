@@ -1,0 +1,28 @@
+{
+  "staticKey": "p009",
+  "title": "ゼロ埋め",
+  "description": "整数 N が与えられます。N を5桁のゼロ埋めした文字列として出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["String.padStart"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "String.padStart は文字列を指定した長さまで先頭を埋めます。ゼロ埋めや桁揃えに便利です。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const result = n.toString().padStart(5, '0');\nconsole.log(result);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "42",
+      "output": "00042"
+    },
+    {
+      "input": "12345",
+      "output": "12345"
+    }
+  ]
+}

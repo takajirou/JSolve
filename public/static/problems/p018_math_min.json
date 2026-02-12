@@ -1,0 +1,28 @@
+{
+  "staticKey": "p018",
+  "title": "最小値の検索",
+  "description": "N 個の整数が与えられます。その中の最小値を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Math.min"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Math.min は複数の数値の中から最小値を返します。スプレッド構文と組み合わせて使います。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const min = Math.min(...numbers);\nconsole.log(min);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n3 1 4 1 5",
+      "output": "1"
+    },
+    {
+      "input": "4\n100 50 200 75",
+      "output": "50"
+    }
+  ]
+}

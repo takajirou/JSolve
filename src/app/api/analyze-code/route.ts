@@ -1,54 +1,156 @@
 import { NextRequest, NextResponse } from "next/server";
+import vm from "node:vm";
 import OpenAI from "openai";
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-type AnalyzeCodeRequestBody = {
+type TestCase = {
+    input: string;
+    output: string;
+};
+
+type JudgeRequest = {
     code: string;
+    requiredFunctions: string[];
+    cases: TestCase[];
+};
+
+type CaseResult = {
+    input: string;
+    expected: string;
+    actual: string;
+    passed: boolean;
+};
+
+type FunctionCheckResult = {
+    functionName: string;
+    isUsed: boolean;
+    explanation: string;
+};
+
+const normalize = (text: string): string => text.trim().replace(/\r\n/g, "\n");
+
+const executeCode = (code: string, input: string): string => {
+    let output = "";
+
+    const sandbox: {
+        inputData: string;
+        console: { log: (...args: unknown[]) => void };
+    } = {
+        inputData: input,
+        console: {
+            log: (...args: unknown[]) => {
+                output += args.join(" ") + "\n";
+            },
+        },
+    };
+
+    vm.createContext(sandbox);
+
+    const wrappedCode = `
+        const input = inputData.trim().split("\\n");
+        ${code}
+    `;
+
+    vm.runInContext(wrappedCode, sandbox, { timeout: 1000 });
+
+    return output.trim();
+};
+
+const checkFunctions = (
+    code: string,
+    requiredFunctions: string[],
+): FunctionCheckResult[] => {
+    return requiredFunctions.map((fn) => {
+        const regex = new RegExp(`\\b${fn}\\b`);
+        const isUsed = regex.test(code);
+
+        return {
+            functionName: fn,
+            isUsed,
+            explanation: isUsed
+                ? `${fn} が使用されています`
+                : `${fn} が使用されていません`,
+        };
+    });
 };
 
 export async function POST(req: NextRequest) {
     try {
-        const body: unknown = await req.json();
+        const body = (await req.json()) as JudgeRequest;
 
-        if (
-            typeof body !== "object" ||
-            body === null ||
-            !("code" in body) ||
-            typeof (body as AnalyzeCodeRequestBody).code !== "string"
-        ) {
-            return NextResponse.json(
-                { error: "Invalid request body" },
-                { status: 400 },
-            );
-        }
+        const caseResults: CaseResult[] = body.cases.map((testCase) => {
+            let actual = "";
+            let passed = false;
 
-        const { code } = body as AnalyzeCodeRequestBody;
+            try {
+                actual = executeCode(body.code, testCase.input);
+                passed = normalize(actual) === normalize(testCase.output);
+            } catch {
+                actual = "Runtime Error";
+                passed = false;
+            }
 
-        const response = await openai.chat.completions.create({
-            model: "gpt-3.5-turbo",
-            messages: [
-                {
-                    role: "system",
-                    content: "あなたは優秀なコードレビュアーです。",
-                },
-                {
-                    role: "user",
-                    content: `以下のJavaScriptコードを分析してどんなコードか分析してください:\n\n${code}`,
-                },
-            ],
-            temperature: 0.2,
+            return {
+                input: testCase.input,
+                expected: testCase.output,
+                actual,
+                passed,
+            };
         });
 
-        const result =
-            response.choices[0]?.message?.content ?? "解析できませんでした。";
+        const allPassed = caseResults.every((c) => c.passed);
 
-        return NextResponse.json({ result });
+        const functionChecks = checkFunctions(
+            body.code,
+            body.requiredFunctions,
+        );
+
+        const allFunctionsUsed = functionChecks.every((f) => f.isUsed);
+
+        const success = allPassed && allFunctionsUsed;
+
+        let feedback: string | undefined;
+
+        if (!success) {
+            const aiResponse = await openai.chat.completions.create({
+                model: "gpt-4o-mini",
+                messages: [
+                    {
+                        role: "system",
+                        content:
+                            "あなたは優秀なプログラミング講師です。提出コードがなぜ失敗したかを簡潔に説明してください。",
+                    },
+                    {
+                        role: "user",
+                        content: `
+コード:
+${body.code}
+
+テスト結果:
+${JSON.stringify(caseResults, null, 2)}
+
+関数チェック:
+${JSON.stringify(functionChecks, null, 2)}
+`,
+                    },
+                ],
+                temperature: 0.5,
+            });
+
+            feedback = aiResponse.choices[0]?.message?.content ?? undefined;
+        }
+
+        return NextResponse.json({
+            success,
+            caseResults,
+            functionChecks,
+            feedback,
+        });
     } catch (error: unknown) {
-        const message =
-            error instanceof Error ? error.message : "エラーが発生しました。";
+        const message = error instanceof Error ? error.message : "Server Error";
 
         return NextResponse.json({ error: message }, { status: 500 });
     }

@@ -1,0 +1,28 @@
+{
+  "staticKey": "p011",
+  "title": "最初の負の数の位置",
+  "description": "N 個の整数が与えられます。最初に現れる負の数のインデックス(0始まり)を出力してください。負の数がない場合は -1 を出力してください。",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.findIndex"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.findIndex は条件を満たす最初の要素のインデックスを返します。見つからない場合は -1 を返します。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const index = numbers.findIndex(n => n < 0);\nconsole.log(index);"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n1 2 -3 4 5",
+      "output": "2"
+    },
+    {
+      "input": "3\n1 2 3",
+      "output": "-1"
+    }
+  ]
+}

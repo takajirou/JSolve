@@ -1,0 +1,28 @@
+{
+  "staticKey": "p012",
+  "title": "部分配列の抽出",
+  "description": "N 個の整数と、2つのインデックス L, R が与えられます。インデックス L から R-1 までの部分配列をスペース区切りで出力してください。(0始まり)",
+  "difficulty": "EASY",
+  "functionKeys": ["Array.slice"],
+  "hints": [
+    {
+      "type": "text",
+      "value": "Array.slice は配列の一部を切り出して新しい配列を返します。元の配列は変更されません。"
+    },
+    {
+      "type": "code",
+      "language": "ts",
+      "value": "const subArray = numbers.slice(L, R);\nconsole.log(subArray.join(' '));"
+    }
+  ],
+  "cases": [
+    {
+      "input": "5\n1 2 3 4 5\n1 4",
+      "output": "2 3 4"
+    },
+    {
+      "input": "6\n10 20 30 40 50 60\n0 3",
+      "output": "10 20 30"
+    }
+  ]
+}
